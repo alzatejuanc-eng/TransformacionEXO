@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MIEDE v2.0 — Modelo Integral de Evolución Digital Empresarial | Transformación ExO</title>
+<meta name="description" content="MIEDE v2.0: 8 etapas con Inteligencia Artificial integrada para llevar tu empresa desde el diagnóstico hasta la Fusión Digital Total.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#05080f;--sf:#090f1a;--cd:#0d1826;--cd2:#111f30;
+  --bd:rgba(255,255,255,.06);--bd2:rgba(255,255,255,.11);
+  --tx:#c8dced;--mt:#426577;
+  --a1:#0d8ce9;--a2:#07b8d4;--gd:#e2b445;
+  --vl:#9d4fef;--em:#17c48a;--co:#e3563f;--sk:#34bdf5;
+  --c1:#0d8ce9;--c2:#07b8d4;--c3:#17c48a;--c4:#9d4fef;
+  --c5:#e2b445;--c6:#e3563f;--c7:#34bdf5;--c8:#c084fc;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:rgba(13,140,233,.4);border-radius:3px}
+
+.pb{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--a1),var(--vl),var(--em));z-index:200;width:0;transition:width .08s}
+
+/* BACK BAR */
+.bbar{position:fixed;top:0;left:0;right:0;z-index:100;height:62px;padding:0 32px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(5,8,15,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
+.bk{color:var(--a2);text-decoration:none;font-size:11px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:8px;transition:color .2s}
+.bk:hover{color:#fff}
+.bk svg{width:14px;height:14px}
+.btitl{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:.1em;color:var(--tx)}
+.vbadge{padding:4px 12px;border-radius:100px;background:rgba(157,79,239,.12);
+  border:1px solid rgba(157,79,239,.3);color:#c07ffa;font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;
+  padding:110px 24px 90px;overflow:hidden}
+.hbg{position:absolute;inset:0;background:
+  radial-gradient(ellipse 80% 65% at 50% -5%,rgba(13,140,233,.2) 0%,transparent 55%),
+  radial-gradient(ellipse 50% 42% at 3% 88%,rgba(157,79,239,.12) 0%,transparent 50%),
+  radial-gradient(ellipse 45% 38% at 97% 76%,rgba(23,196,138,.09) 0%,transparent 48%)}
+.hgrid{position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+  background-size:58px 58px;animation:gd 24s linear infinite;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%)}
+@keyframes gd{from{transform:translateY(0)}to{transform:translateY(58px)}}
+
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;
+  border-radius:100px;background:rgba(13,140,233,.1);border:1px solid rgba(13,140,233,.26);
+  color:#6bbff5;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  margin-bottom:32px;position:relative;z-index:1}
+.badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--a1);
+  box-shadow:0 0 8px var(--a1);animation:bl 2s ease infinite}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.3}}
+
+.acronym{font-family:'Bebas Neue',sans-serif;font-size:clamp(80px,14vw,170px);
+  letter-spacing:.03em;line-height:.85;position:relative;z-index:1;
+  background:linear-gradient(135deg,#fff 10%,#88c8e8 55%,var(--a1) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+.subtitle{font-size:clamp(13px,1.8vw,17px);font-weight:300;color:#608899;
+  line-height:1.75;max-width:600px;margin:22px auto 0;position:relative;z-index:1}
+.subtitle strong{color:var(--tx);font-weight:600}
+
+.v2pill{display:inline-flex;align-items:center;gap:6px;padding:7px 18px;
+  border-radius:8px;background:rgba(157,79,239,.12);border:1px solid rgba(157,79,239,.3);
+  color:#c07ffa;font-size:11px;font-weight:600;letter-spacing:.07em;margin-top:28px;
+  position:relative;z-index:1}
+
+.phi{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:32px;position:relative;z-index:1}
+.pip{padding:8px 20px;border-radius:100px;font-size:12px;font-weight:600;border:1px solid;letter-spacing:.04em}
+.pi1{background:rgba(13,140,233,.11);border-color:rgba(13,140,233,.3);color:#6bbff5}
+.pi2{background:rgba(7,184,212,.11);border-color:rgba(7,184,212,.3);color:#52d4e8}
+.pi3{background:rgba(23,196,138,.11);border-color:rgba(23,196,138,.3);color:#4ddaad}
+.pi4{background:rgba(157,79,239,.11);border-color:rgba(157,79,239,.3);color:#c07ffa}
+
+.scroll-hint{position:absolute;bottom:38px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;
+  z-index:1;opacity:.4;transition:opacity .2s}
+.scroll-hint:hover{opacity:.8}
+.scroll-hint span{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--mt)}
+.sln{width:1px;height:32px;background:linear-gradient(180deg,var(--a1),transparent);animation:sl 2s ease infinite}
+@keyframes sl{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* STAGES SECTION */
+.stages{padding:20px 24px 100px}
+.stages-inner{max-width:960px;margin:0 auto}
+.sec-lbl{font-family:'DM Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--a1);text-align:center;margin-bottom:14px;
+  display:flex;align-items:center;justify-content:center;gap:9px}
+.sec-lbl::before,.sec-lbl::after{content:'';height:1px;width:40px;background:rgba(13,140,233,.35)}
+.sec-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,4.5vw,54px);letter-spacing:.04em;
+  background:linear-gradient(135deg,#fff 20%,#86c5e2);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text;text-align:center;margin-bottom:52px}
+
+/* TIMELINE */
+.timeline{position:relative}
+.timeline::before{content:'';position:absolute;left:44px;top:0;bottom:0;width:1px;
+  background:linear-gradient(180deg,transparent,rgba(13,140,233,.3) 8%,rgba(13,140,233,.3) 92%,transparent)}
+@media(max-width:640px){.timeline::before{left:28px}}
+
+.stage{display:flex;gap:28px;margin-bottom:8px;cursor:pointer}
+@media(max-width:640px){.stage{gap:18px}}
+.stage-node-col{flex-shrink:0;display:flex;flex-direction:column;align-items:center;padding-top:22px}
+.stage-node{width:88px;height:88px;border-radius:50%;background:var(--cd);border:2px solid;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-size:20px;transition:all .3s;position:relative;z-index:1;flex-shrink:0}
+.stage-node .snum{font-family:'DM Mono',monospace;font-size:8px;color:var(--mt);letter-spacing:.12em;margin-top:2px}
+@media(max-width:640px){.stage-node{width:56px;height:56px;font-size:15px}}
+
+.stage-content{flex:1;padding:18px 0 36px}
+.stage-header{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding:20px 24px;border-radius:14px;background:var(--cd);border:1px solid var(--bd);transition:all .3s}
+.stage.active .stage-header,.stage-header:hover{background:var(--cd2)}
+.stage-meta{flex:1}
+.stage-kw{font-family:'DM Mono',monospace;font-size:9px;color:var(--mt);letter-spacing:.14em;text-transform:uppercase;margin-bottom:5px}
+.stage-nm{font-size:16px;font-weight:700;color:#ddeeff;margin-bottom:4px;line-height:1.3}
+@media(max-width:640px){.stage-nm{font-size:14px}}
+.stage-tg{font-size:12px;color:var(--mt);margin-bottom:8px}
+.ai-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:100px;
+  background:rgba(157,79,239,.12);border:1px solid rgba(157,79,239,.25);
+  color:#c07ffa;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.stage-toggle{width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.04);
+  border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:4px;transition:all .3s}
+.stage-toggle svg{width:14px;height:14px;stroke:var(--mt);transition:transform .3s}
+.stage.active .stage-toggle svg{transform:rotate(180deg)}
+
+/* Panel */
+.stage-panel{max-height:0;overflow:hidden;transition:max-height .5s ease}
+.stage.active .stage-panel{max-height:800px}
+.panel-inner{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:14px 0 0}
+@media(max-width:700px){.panel-inner{grid-template-columns:1fr}}
+.pcard{background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:20px;
+  position:relative;overflow:hidden}
+.pcard::before{content:'';position:absolute;top:0;left:0;bottom:0;width:2px}
+.pfull{grid-column:1/-1}
+.pl{font-size:10px;color:var(--mt);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;font-family:'DM Mono',monospace}
+.pt{font-size:13px;font-weight:300;color:#608899;line-height:1.75}
+.pt strong{color:var(--tx);font-weight:600}
+.ai-result{background:rgba(157,79,239,.06);border:1px solid rgba(157,79,239,.18);
+  border-radius:10px;padding:14px 16px;margin-top:12px}
+.ai-result-l{font-size:9px;color:#c07ffa;letter-spacing:.12em;text-transform:uppercase;
+  margin-bottom:5px;font-family:'DM Mono',monospace;display:flex;align-items:center;gap:5px}
+.ai-result-t{font-size:12px;color:#c07ffa;font-weight:300;line-height:1.7}
+
+/* Color theming */
+.e1 .stage-node{border-color:var(--c1)}.e1.active .stage-node,.e1:hover .stage-node{box-shadow:0 0 0 5px rgba(13,140,233,.14),0 0 26px rgba(13,140,233,.3)}
+.e1 .stage-kw{color:var(--c1)}.e1 .pcard::before{background:var(--c1)}
+.e1.active .stage-toggle{background:rgba(13,140,233,.12);border-color:var(--c1)}
+.e2 .stage-node{border-color:var(--c2)}.e2.active .stage-node,.e2:hover .stage-node{box-shadow:0 0 0 5px rgba(7,184,212,.14),0 0 26px rgba(7,184,212,.3)}
+.e2 .stage-kw{color:var(--c2)}.e2 .pcard::before{background:var(--c2)}
+.e2.active .stage-toggle{background:rgba(7,184,212,.12);border-color:var(--c2)}
+.e3 .stage-node{border-color:var(--c3)}.e3.active .stage-node,.e3:hover .stage-node{box-shadow:0 0 0 5px rgba(23,196,138,.14),0 0 26px rgba(23,196,138,.3)}
+.e3 .stage-kw{color:var(--c3)}.e3 .pcard::before{background:var(--c3)}
+.e3.active .stage-toggle{background:rgba(23,196,138,.12);border-color:var(--c3)}
+.e4 .stage-node{border-color:var(--c4)}.e4.active .stage-node,.e4:hover .stage-node{box-shadow:0 0 0 5px rgba(157,79,239,.16),0 0 26px rgba(157,79,239,.35)}
+.e4 .stage-kw{color:var(--c4)}.e4 .pcard::before{background:var(--c4)}
+.e4.active .stage-toggle{background:rgba(157,79,239,.14);border-color:var(--c4)}
+.e5 .stage-node{border-color:var(--c5)}.e5.active .stage-node,.e5:hover .stage-node{box-shadow:0 0 0 5px rgba(226,180,69,.14),0 0 26px rgba(226,180,69,.3)}
+.e5 .stage-kw{color:var(--c5)}.e5 .pcard::before{background:var(--c5)}
+.e5.active .stage-toggle{background:rgba(226,180,69,.12);border-color:var(--c5)}
+.e6 .stage-node{border-color:var(--c6)}.e6.active .stage-node,.e6:hover .stage-node{box-shadow:0 0 0 5px rgba(227,86,63,.14),0 0 26px rgba(227,86,63,.3)}
+.e6 .stage-kw{color:var(--c6)}.e6 .pcard::before{background:var(--c6)}
+.e6.active .stage-toggle{background:rgba(227,86,63,.12);border-color:var(--c6)}
+.e7 .stage-node{border-color:var(--c7)}.e7.active .stage-node,.e7:hover .stage-node{box-shadow:0 0 0 5px rgba(52,189,245,.14),0 0 26px rgba(52,189,245,.3)}
+.e7 .stage-kw{color:var(--c7)}.e7 .pcard::before{background:var(--c7)}
+.e7.active .stage-toggle{background:rgba(52,189,245,.12);border-color:var(--c7)}
+.e8 .stage-node{border-color:var(--c8)}.e8.active .stage-node,.e8:hover .stage-node{box-shadow:0 0 0 5px rgba(192,132,252,.18),0 0 30px rgba(192,132,252,.4)}
+.e8 .stage-kw{color:var(--c8)}.e8 .pcard::before{background:linear-gradient(180deg,var(--c8),var(--c4))}
+.e8.active .stage-toggle{background:rgba(192,132,252,.14);border-color:var(--c8)}
+
+/* PRINCIPLES */
+.princ{border-top:1px solid var(--bd);padding:80px 24px}
+.pi-inner{max-width:960px;margin:0 auto}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:42px}
+.pc{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:26px;
+  position:relative;overflow:hidden;transition:transform .3s}
+.pc:hover{transform:translateY(-4px)}
+.pc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px}
+.pc1::after{background:linear-gradient(90deg,var(--a1),var(--a2))}
+.pc2::after{background:linear-gradient(90deg,var(--gd),var(--co))}
+.pc3::after{background:linear-gradient(90deg,var(--vl),var(--sk))}
+.pc4::after{background:linear-gradient(90deg,var(--em),var(--a2))}
+.pico{font-size:28px;margin-bottom:12px}
+.ptit{font-size:14px;font-weight:700;color:#ddeeff;margin-bottom:9px}
+.ptx{font-size:12px;font-weight:300;color:#4e7a94;line-height:1.75}
+
+/* FOOTER */
+.foot{border-top:1px solid var(--bd);padding:40px 32px;text-align:center}
+.foot p{font-size:12px;color:var(--mt);margin-top:6px}
+.foot a{color:var(--a2);text-decoration:none;font-weight:600}
+.foot a:hover{color:#fff}
+.nlogo{display:inline-flex;align-items:center;gap:10px;text-decoration:none}
+.nm{width:32px;height:32px;background:linear-gradient(135deg,var(--a1),var(--a2));
+  border-radius:7px;display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:16px;color:#fff;letter-spacing:.04em}
+.nt{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.07em;color:#fff}
+.nt b{color:var(--a1)}
+</style>
+</head>
+<body>
+
+<div class="pb" id="pb"></div>
+
+<!-- BACK BAR -->
+<div class="bbar">
+  <a href="index.html" class="bk">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Inicio
+  </a>
+  <span class="btitl">MIEDE v2.0</span>
+  <span class="vbadge">8 Etapas · IA Integrada</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hbg"></div>
+  <div class="hgrid"></div>
+
+  <div class="badge">Transformación ExO · Juan Carlos Alzate García</div>
+
+  <div class="acronym">MIEDE</div>
+
+  <p class="subtitle">
+    <strong>Modelo Integral de Evolución Digital Empresarial</strong> — Versión 2.0<br>
+    Una metodología de <strong>8 etapas con IA integrada</strong> desarrollada desde la experiencia real en organizaciones de Ecuador y América Latina.
+  </p>
+
+  <div class="v2pill">
+    🤖 Versión 2.0 · Inteligencia Artificial en cada etapa del camino
+  </div>
+
+  <div class="phi">
+    <div class="pip pi1">70% Personas</div>
+    <div class="pip pi2">25% Metodología</div>
+    <div class="pip pi3">5% Tecnología</div>
+    <div class="pip pi4">IA Transversal</div>
+  </div>
+
+  <div class="scroll-hint" onclick="document.getElementById('stages').scrollIntoView({behavior:'smooth'})">
+    <span>Explorar las 8 etapas</span>
+    <div class="sln"></div>
+  </div>
+</section>
+
+<!-- STAGES -->
+<section class="stages" id="stages">
+  <div class="stages-inner">
+    <p class="sec-lbl">El Camino hacia la Fusión Digital Total</p>
+    <h2 class="sec-h">Las 8 Etapas del MIEDE v2.0</h2>
+
+    <div class="timeline" id="timeline">
+
+      <!-- ETAPA 1 -->
+      <div class="stage e1">
+        <div class="stage-node-col">
+          <div class="stage-node">🏛<span class="snum">01</span></div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-header">
+            <div class="stage-meta">
+              <div class="stage-kw">Etapa 01 · Diagnóstico Estratégico</div>
+              <div class="stage-nm">Evaluación del Estado Actual con IA</div>
+              <div class="stage-tg">Radiografía honesta potenciada por inteligencia artificial</div>
+              <span class="ai-badge">🤖 IA Diagnóstica</span>
+            </div>
+            <div class="stage-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="stage-panel">
+            <div class="panel-inner">
+              <div class="pcard pfull"><div class="pl">¿Qué hace la empresa?</div><div class="pt">Realiza un <strong>diagnóstico integral</strong> de su estado actual digital: fortalezas, debilidades, oportunidades y amenazas. Se mide el porcentaje real de adopción tecnológica, se identifican cuellos de botella operativos y se evalúa la disposición al cambio de las personas. La IA analiza patrones en los datos del diagnóstico y genera un mapa de prioridades accionable. Sin autoengaños: esta es la base de todo.</div></div>
+              <div class="pcard"><div class="pl">Resultado clave</div><div class="pt">Claridad absoluta sobre el estado actual y <strong>priorización con datos</strong> de las áreas críticas de intervención.</div></div>
+              <div class="pcard"><div class="pl">Por qué es el primer paso</div><div class="pt">Sin saber dónde está la empresa, cualquier estrategia es un salto al vacío. <strong>La honestidad brutal aquí define la calidad de todo lo que sigue.</strong></div></div>
+              <div class="pcard pfull"><div class="ai-result"><div class="ai-result-l">🤖 IA en esta etapa</div><div class="ai-result-t">La IA procesa datos del diagnóstico para identificar patrones de riesgo, benchmarks sectoriales y genera un Mapa de Brechas Digital automático que prioriza las áreas de mayor impacto potencial.</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ETAPA 2 -->
+      <div class="stage e2">
+        <div class="stage-node-col">
+          <div class="stage-node">💡<span class="snum">02</span></div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-header">
+            <div class="stage-meta">
+              <div class="stage-kw">Etapa 02 · Estrategia Digital</div>
+              <div class="stage-nm">Estrategia Digital + Hoja de Ruta IA</div>
+              <div class="stage-tg">Visión exponencial y roadmap de IA alineado al negocio</div>
+              <span class="ai-badge">🤖 IA Estratégica</span>
+            </div>
+            <div class="stage-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="stage-panel">
+            <div class="panel-inner">
+              <div class="pcard pfull"><div class="pl">¿Qué hace la empresa?</div><div class="pt">Con base en el diagnóstico, establece una <strong>visión transformadora y un propósito exponencial</strong>. En la v2.0 se añade el diseño explícito del <strong>Roadmap de IA a 12-36 meses</strong>: qué capacidades de IA desarrollar, en qué procesos implementarla primero, cómo medir el ROI. La estrategia digital ya no puede separarse de la estrategia de IA.</div></div>
+              <div class="pcard"><div class="pl">Resultado clave</div><div class="pt">Una <strong>hoja de ruta digital + IA</strong> coherente entre lo que la empresa es y hacia dónde quiere evolucionar.</div></div>
+              <div class="pcard"><div class="pl">Referente conceptual</div><div class="pt">Inspirada en <strong>Salim Ismail</strong> (ExO) y <strong>David L. Rogers</strong>: estrategia como reinvención del modelo de negocio, no como mejora cosmética.</div></div>
+              <div class="pcard pfull"><div class="ai-result"><div class="ai-result-l">🤖 IA en esta etapa</div><div class="ai-result-t">La IA ayuda a identificar casos de uso de alta prioridad, analiza la madurez de datos disponibles y genera una propuesta inicial de implementación ordenada por impacto vs. esfuerzo.</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ETAPA 3 -->
+      <div class="stage e3">
+        <div class="stage-node-col">
+          <div class="stage-node">⚙️<span class="snum">03</span></div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-header">
+            <div class="stage-meta">
+              <div class="stage-kw">Etapa 03 · Optimización Operativa</div>
+              <div class="stage-nm">Optimización Operativa + Automatización Inteligente</div>
+              <div class="stage-tg">Digitalizar y automatizar para liberar capacidad humana</div>
+              <span class="ai-badge">🤖 IA Operacional</span>
+            </div>
+            <div class="stage-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="stage-panel">
+            <div class="panel-inner">
+              <div class="pcard pfull"><div class="pl">¿Qué hace la empresa?</div><div class="pt">Interviene los procesos existentes para <strong>digitalizarlos, automatizarlos y eliminar fricciones</strong>. En la v2.0, la automatización es "inteligente": no solo reglas predefinidas sino <strong>automatización adaptativa con IA</strong> que aprende y mejora continuamente. La reducción de costos operativos libera el capital —humano y financiero— necesario para innovar.</div></div>
+              <div class="pcard"><div class="pl">Resultado clave</div><div class="pt"><strong>Procesos más ágiles</strong>, costos reducidos y recursos disponibles para las etapas de mayor impacto estratégico.</div></div>
+              <div class="pcard"><div class="pl">Error frecuente a evitar</div><div class="pt">Confundir digitalización con transformación. <strong>Automatizar un proceso ineficiente solo lo hace más rápidamente ineficiente.</strong> Primero rediseñar, luego automatizar.</div></div>
+              <div class="pcard pfull"><div class="ai-result"><div class="ai-result-l">🤖 IA en esta etapa</div><div class="ai-result-t">RPA inteligente, procesamiento de documentos con OCR + IA, asistentes virtuales internos y modelos predictivos que anticipan problemas operativos antes de que ocurran.</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ETAPA 4 — NUEVA -->
+      <div class="stage e4">
+        <div class="stage-node-col">
+          <div class="stage-node">🧠<span class="snum">04</span></div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-header">
+            <div class="stage-meta">
+              <div class="stage-kw">Etapa 04 · Integración IA — <span style="color:#c07ffa;font-size:9px;border:1px solid rgba(157,79,239,.3);padding:1px 7px;border-radius:8px;background:rgba(157,79,239,.1)">NUEVO EN V2.0</span></div>
+              <div class="stage-nm">Integración Estratégica de IA en el Negocio</div>
+              <div class="stage-tg">El paso más crítico del MIEDE v2.0: de IA experimental a IA en producción</div>
+              <span class="ai-badge">🤖 IA Generativa + Agentes</span>
+            </div>
+            <div class="stage-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="stage-panel">
+            <div class="panel-inner">
+              <div class="pcard pfull"><div class="pl">¿Qué hace la empresa?</div><div class="pt">Esta etapa, <strong>exclusiva del MIEDE v2.0</strong>, es donde la IA pasa de ser una promesa a ser una realidad operativa. Se implementan los primeros <strong>proyectos de IA en producción</strong> con ROI medible: IA generativa para clientes, modelos predictivos para ventas u operaciones, agentes IA para automatización avanzada. Se establece la <strong>gobernanza de datos y ética de IA</strong> como base irrenunciable.</div></div>
+              <div class="pcard"><div class="pl">Resultado clave</div><div class="pt">Al menos <strong>2-3 proyectos de IA en producción</strong> con métricas claras de impacto en el negocio y aprendizajes documentados.</div></div>
+              <div class="pcard"><div class="pl">La transición crítica</div><div class="pt">MIT CISR identifica este punto como el <strong>mayor salto de impacto financiero</strong>: las empresas que llegan a producción en IA superan significativamente el promedio de su industria.</div></div>
+              <div class="pcard pfull"><div class="ai-result"><div class="ai-result-l">🤖 IA en esta etapa</div><div class="ai-result-t">RAG (Retrieval Augmented Generation) para bases de conocimiento internas, Copilots personalizados para equipos comerciales y operativos, modelos predictivos de demanda/riesgo, y primeros agentes IA autónomos en procesos de bajo riesgo.</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ETAPA 5 -->
+      <div class="stage e5">
+        <div class="stage-node-col">
+          <div class="stage-node">🔬<span class="snum">05</span></div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-header">
+            <div class="stage-meta">
+              <div class="stage-kw">Etapa 05 · Innovación</div>
+              <div class="stage-nm">Innovación en el Modelo de Negocio con IA Generativa</div>
+              <div class="stage-tg">Crear valor incremental potenciado por IA</div>
+              <span class="ai-badge">🤖 IA Generativa</span>
+            </div>
+            <div class="stage-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="stage-panel">
+            <div class="panel-inner">
+              <div class="pcard pfull"><div class="pl">¿Qué hace la empresa?</div><div class="pt">Dentro del marco operativo vigente, desarrolla <strong>nuevos productos, servicios o experiencias</strong> diseñadas nativamente con IA. La IA generativa acelera la innovación: reduce el tiempo de ideación, permite personalización masiva y genera prototipos en días. Se fomenta la experimentación disciplinada con hipótesis, métricas y criterios claros de éxito o descarte.</div></div>
+              <div class="pcard"><div class="pl">Resultado clave</div><div class="pt">Nuevas <strong>fuentes de ingreso y diferenciación</strong> sin comprometer la operación central. La innovación como capacidad organizacional sostenida.</div></div>
+              <div class="pcard"><div class="pl">Principio guía</div><div class="pt">Innovar de manera <strong>disciplinada y medible</strong>. Cada experimento debe tener hipótesis, métricas y criterio claro de éxito o descarte.</div></div>
+              <div class="pcard pfull"><div class="ai-result"><div class="ai-result-l">🤖 IA en esta etapa</div><div class="ai-result-t">IA generativa para diseño acelerado de productos, personalización hipersegmentada de servicios, experiencias de cliente potenciadas por IA y co-creación con usuarios a través de interfaces conversacionales.</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ETAPA 6 -->
+      <div class="stage e6">
+        <div class="stage-node-col">
+          <div class="stage-node">🌱<span class="snum">06</span></div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-header">
+            <div class="stage-meta">
+              <div class="stage-kw">Etapa 06 · Capacidades Organizacionales</div>
+              <div class="stage-nm">Desarrollo de Capacidades + IA Literacy Organizacional</div>
+              <div class="stage-tg">El 70% del éxito: personas competentes y confiadas en IA</div>
+              <span class="ai-badge">🤖 IA Literacy</span>
+            </div>
+            <div class="stage-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="stage-panel">
+            <div class="panel-inner">
+              <div class="pcard pfull"><div class="pl">¿Qué hace la empresa?</div><div class="pt">Construye el <strong>músculo humano</strong> necesario para sostener la evolución con IA. Se desarrollan programas de capacitación en IA para todos los niveles (desde conceptos básicos hasta uso avanzado), se gestiona activamente el cambio cultural, se designan <strong>Campeones de IA</strong> en cada área y se cultiva una cultura de experimentación y aprendizaje continuo. No es un taller: es una reinvención de la identidad organizacional.</div></div>
+              <div class="pcard"><div class="pl">Resultado clave</div><div class="pt">Talento capacitado en IA y una <strong>cultura organizacional</strong> que ve la IA como aliada y oportunidad, no como amenaza.</div></div>
+              <div class="pcard"><div class="pl">Filosofía central</div><div class="pt">El <strong>70% del éxito del MIEDE descansa aquí</strong>. McKinsey 2025 confirma: el obstáculo no son los empleados —que están listos— sino los líderes que no avanzan suficientemente rápido.</div></div>
+              <div class="pcard pfull"><div class="ai-result"><div class="ai-result-l">🤖 IA en esta etapa</div><div class="ai-result-t">Plataformas de aprendizaje adaptativas con IA, tutores virtuales para capacitación personalizada y medición del progreso de adopción con analytics de uso real de herramientas IA.</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ETAPA 7 -->
+      <div class="stage e7">
+        <div class="stage-node-col">
+          <div class="stage-node">🚀<span class="snum">07</span></div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-header">
+            <div class="stage-meta">
+              <div class="stage-kw">Etapa 07 · Disrupción Exponencial</div>
+              <div class="stage-nm">Modelo de Negocio Disruptivo con IA Exponencial</div>
+              <div class="stage-tg">Redefinir las reglas del sector con tecnología exponencial</div>
+              <span class="ai-badge">🤖 Agentes IA Autónomos</span>
+            </div>
+            <div class="stage-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="stage-panel">
+            <div class="panel-inner">
+              <div class="pcard pfull"><div class="pl">¿Qué hace la empresa?</div><div class="pt">Explora y ejecuta oportunidades <strong>radicales de creación de valor</strong> apoyadas en IA avanzada, plataformas de datos inteligentes y agentes IA autónomos. Implementa modelos que pueden escalar de forma no lineal y que redefinen las reglas del sector. Los agentes de IA gestionan procesos completos de manera autónoma. El objetivo: <strong>protagonizar la disrupción, no ser su víctima</strong>.</div></div>
+              <div class="pcard"><div class="pl">Resultado clave</div><div class="pt">Nuevos modelos de negocio con <strong>potencial de escala exponencial</strong> y diferenciación difícilmente replicable por la competencia.</div></div>
+              <div class="pcard"><div class="pl">El rol de la IA aquí</div><div class="pt">La IA no es herramienta de soporte: en esta etapa es el <strong>motor central de los nuevos modelos de creación de valor</strong> y el diferenciador competitivo principal.</div></div>
+              <div class="pcard pfull"><div class="ai-result"><div class="ai-result-l">🤖 IA en esta etapa</div><div class="ai-result-t">Agentes IA autónomos en operaciones críticas, modelos de IA generativa para nuevas líneas de negocio, plataformas de datos como ventaja competitiva y ecosistemas de partners conectados por IA.</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ETAPA 8 -->
+      <div class="stage e8">
+        <div class="stage-node-col">
+          <div class="stage-node">✨<span class="snum">08</span></div>
+        </div>
+        <div class="stage-content">
+          <div class="stage-header">
+            <div class="stage-meta">
+              <div class="stage-kw">Etapa 08 · Fusión Digital Total</div>
+              <div class="stage-nm">Fusión Digital Total + Ecosistema IA Integrado</div>
+              <div class="stage-tg">Tecnología, cultura e IA en el ADN organizacional</div>
+              <span class="ai-badge">🤖 Ecosistema IA Completo</span>
+            </div>
+            <div class="stage-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="stage-panel">
+            <div class="panel-inner">
+              <div class="pcard pfull"><div class="pl">¿Qué hace la empresa?</div><div class="pt">La tecnología, la cultura y la IA se integran en el <strong>ADN de la organización</strong>. Ya no son proyectos ni departamentos separados: son la forma natural de operar. Más del 50% de los empleados usa IA diariamente. El ecosistema de partners, plataformas y modelos IA está completamente integrado. La empresa es ágil, escalable y <strong>exponencialmente competitiva</strong>: capaz de reinventarse continuamente.</div></div>
+              <div class="pcard"><div class="pl">Resultado clave</div><div class="pt">Una organización <strong>exponencialmente competitiva</strong> en la era de la IA, con capacidad de reinvención continua como ventaja competitiva sostenible.</div></div>
+              <div class="pcard"><div class="pl">El estándar de excelencia</div><div class="pt">En la Fusión Digital Total, el lujo se democratiza: crear <strong>experiencias extraordinarias</strong> —imposibles sin IA— para clientes y colaboradores es la ventaja que ningún competidor puede copiar directamente.</div></div>
+              <div class="pcard pfull"><div class="ai-result"><div class="ai-result-l">🤖 IA en esta etapa</div><div class="ai-result-t">IA omnipresente: decisiones en tiempo real, personalización a escala individual, modelos que se auto-mejoran, ecosistema de agentes IA coordinados y capacidad de adaptación instantánea a cambios del mercado.</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /timeline -->
+  </div>
+</section>
+
+<!-- PRINCIPLES -->
+<section class="princ">
+  <div class="pi-inner">
+    <p class="sec-lbl">Lo que Atraviesa Todo el Modelo</p>
+    <h2 class="sec-h">Principios Transversales del MIEDE v2.0</h2>
+    <div class="pgrid">
+      <div class="pc pc1">
+        <div class="pico">🔄</div>
+        <div class="ptit">Las etapas se retroalimentan</div>
+        <div class="ptx">El MIEDE no es lineal en la práctica: cada etapa genera insumos para las siguientes y los aprendizajes informan ajustes en las anteriores. Saltarse pasos compromete la sostenibilidad del proceso.</div>
+      </div>
+      <div class="pc pc2">
+        <div class="pico">🧭</div>
+        <div class="ptit">La IA como brújula, no como destino</div>
+        <div class="ptx">En el MIEDE v2.0, la IA es el habilitador transversal en cada decisión estratégica. No se trata de implementar IA por moda: se trata de usar IA para crear valor real y medible en cada etapa.</div>
+      </div>
+      <div class="pc pc3">
+        <div class="pico">👥</div>
+        <div class="ptit">70% personas, siempre</div>
+        <div class="ptx">Incluso con IA en el centro, el 70% del éxito sigue siendo de personas. La adopción de IA falla cuando se subestima la gestión del cambio, la capacitación y la construcción de confianza en los equipos.</div>
+      </div>
+      <div class="pc pc4">
+        <div class="pico">💎</div>
+        <div class="ptit">Experiencias extraordinarias como estándar</div>
+        <div class="ptx">En la era de la IA, la verdadera ventaja reside en crear experiencias que trasciendan lo funcional. El "lujo democratizado" —posible gracias a la IA— es la diferenciación sostenible que ninguna tecnología puede copiar directamente.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="foot">
+  <a href="index.html" class="nlogo"><div class="nm">TX</div><div class="nt">Transformación <b>ExO</b></div></a>
+  <p>MIEDE v2.0 · Modelo Integral de Evolución Digital Empresarial · <a href="index.html">Transformación ExO</a></p>
+  <p style="margin-top:4px">Juan Carlos Alzate García · ExO Mindset Award Latam</p>
+</div>
+
+<script>
+const pb=document.getElementById('pb');
+window.addEventListener('scroll',()=>{
+  pb.style.width=((window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100)+'%';
+});
+const stages=document.querySelectorAll('.stage');
+stages.forEach(s=>{
+  s.addEventListener('click',()=>{
+    const isActive=s.classList.contains('active');
+    stages.forEach(x=>x.classList.remove('active'));
+    if(!isActive)s.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
