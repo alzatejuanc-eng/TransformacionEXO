@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transformación ExO — Consultoría Transformación Digital e IA | Ecuador</title>
+<meta name="description" content="Consultoría en transformación digital e IA en Ecuador. Reducimos costos, optimizamos procesos y escalamos empresas con el MIEDE X 2.0. Premio ExO Mindset Award Latam.">
+<meta name="keywords" content="transformación digital, consultoría tecnológica, inteligencia artificial, IA empresarial, MIEDE, Ecuador, automatización, digitalización">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;1,400&family=Sora:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#ffffff;--sf:#f6f8fc;--sf2:#edf1f9;--cd:#ffffff;--cd2:#f0f4fb;
+  --bd:rgba(11,23,40,.08);--bd2:rgba(11,23,40,.14);
+  --tx:#0b1728;--tx2:#1e2d42;--mt:#5d6e85;--mt2:#8097b0;
+  --t1:#0d9f8e;--t2:#12c4b0;--b1:#1a3f8f;--b2:#2558c4;
+  --v1:#7b3fa8;--v2:#9d5fd4;--co:#c2710c;--gd:#d4a520;--nv:#0b1728;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:#f0f4f9}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--t1),var(--b1));border-radius:3px}
+.pb{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--t1),var(--b1),var(--v1));z-index:300;width:0;transition:width .08s;box-shadow:0 0 8px rgba(13,159,142,.4)}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(255,255,255,.97);backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(11,23,40,.07);box-shadow:0 2px 20px rgba(11,23,40,.07);transition:box-shadow .3s}
+nav.sc{box-shadow:0 4px 30px rgba(11,23,40,.12);border-bottom-color:rgba(13,159,142,.18)}
+.nlogo{display:flex;align-items:center;gap:12px;text-decoration:none;cursor:pointer}
+.nlogo-img-wrap{background:var(--nv);border-radius:10px;padding:5px 8px;height:46px;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(11,23,40,.25)}
+.nlogo-img{height:34px;width:auto;display:block}
+.nlogo-text{display:flex;flex-direction:column;line-height:1}
+.nlt1{font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:var(--mt);letter-spacing:.02em}
+.nlt2{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.1em;background:linear-gradient(135deg,var(--b1),var(--t1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nl{display:flex;gap:32px;list-style:none}
+.nl a{color:var(--mt);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;transition:color .2s;position:relative}
+.nl a::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--t1);transform:scaleX(0);transition:transform .2s;transform-origin:left}
+.nl a:hover{color:var(--tx)}.nl a:hover::after{transform:scaleX(1)}
+.ncta{padding:11px 22px;background:linear-gradient(135deg,var(--t1),var(--b1));color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all .3s;box-shadow:0 4px 16px rgba(13,159,142,.35);white-space:nowrap}
+.ncta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(13,159,142,.5)}
+@media(max-width:1000px){.nl{display:none}}
+@media(max-width:700px){nav{padding:0 18px}.nlt1{display:none}.ncta{padding:9px 16px;font-size:11px}}
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:130px 24px 100px;overflow:hidden}
+.hbg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 65% at 50% 0%,rgba(13,159,142,.06) 0%,transparent 55%),radial-gradient(ellipse 50% 45% at 3% 90%,rgba(123,63,168,.04) 0%,transparent 52%),radial-gradient(ellipse 45% 40% at 98% 78%,rgba(26,63,143,.04) 0%,transparent 48%)}
+.hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(11,23,40,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(11,23,40,.03) 1px,transparent 1px);background-size:64px 64px;animation:gd 26s linear infinite;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 25%,transparent 100%)}
+@keyframes gd{from{transform:translateY(0)}to{transform:translateY(64px)}}
+.hd1{position:absolute;width:320px;height:320px;border:1px solid rgba(13,159,142,.06);transform:rotate(45deg);right:6%;bottom:8%;border-radius:8px;pointer-events:none}
+.hd2{position:absolute;width:160px;height:160px;border:1px solid rgba(123,63,168,.05);transform:rotate(45deg);left:5%;top:22%;border-radius:4px;pointer-events:none}
+.hd3{position:absolute;width:52px;height:52px;border:2px solid rgba(194,113,12,.09);transform:rotate(45deg);right:22%;top:20%;pointer-events:none}
+.pts{position:absolute;inset:0;overflow:hidden}
+.pt{position:absolute;border-radius:50%;opacity:0;animation:fp var(--dur,8s) ease-in-out var(--del,0s) infinite}
+@keyframes fp{0%{transform:translateY(100vh);opacity:0}10%{opacity:.5}90%{opacity:.12}100%{transform:translateY(-80px) translateX(var(--dr,20px));opacity:0}}
+.award-badge{display:inline-flex;align-items:center;gap:10px;padding:9px 22px;border-radius:100px;background:linear-gradient(135deg,rgba(212,165,32,.1),rgba(194,113,12,.08));border:1.5px solid rgba(212,165,32,.4);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;position:relative;z-index:1;animation:fu .8s ease both;box-shadow:0 2px 16px rgba(212,165,32,.12)}
+.award-badge .aw-ico{font-size:18px;line-height:1}
+.award-badge .aw-txt{background:linear-gradient(135deg,var(--gd),var(--co));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.award-badge .aw-src{font-size:9px;opacity:.65;-webkit-text-fill-color:unset;color:var(--mt);font-weight:500;letter-spacing:.08em}
+.hh{font-family:'Bebas Neue',sans-serif;font-size:clamp(70px,13vw,180px);letter-spacing:.02em;line-height:.87;position:relative;z-index:1;animation:fu .9s ease .2s both}
+.l1{display:block;background:linear-gradient(135deg,var(--nv) 0%,var(--b1) 55%,var(--t1) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.l2{display:block;background:linear-gradient(135deg,var(--t1) 0%,var(--b1) 45%,var(--v1) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hsub{position:relative;z-index:1;animation:fu .9s ease .4s both;margin:28px auto 0;max-width:580px}
+.hsub-main{font-size:clamp(15px,1.9vw,19px);font-weight:600;color:var(--tx);line-height:1.5;margin-bottom:10px}
+.hsub-detail{font-size:clamp(13px,1.5vw,15px);font-weight:300;color:var(--mt);line-height:1.75}
+.hsub-detail strong{color:var(--tx);font-weight:600}
+.hpills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:32px auto 0;position:relative;z-index:1;animation:fu .9s ease .55s both}
+.hp{padding:8px 18px;border-radius:100px;font-size:12px;font-weight:600;border:1px solid;letter-spacing:.04em}
+.hp1{background:rgba(13,159,142,.07);border-color:rgba(13,159,142,.28);color:var(--t1)}
+.hp2{background:rgba(26,63,143,.07);border-color:rgba(26,63,143,.28);color:var(--b1)}
+.hp3{background:rgba(123,63,168,.07);border-color:rgba(123,63,168,.28);color:var(--v1)}
+.hp4{background:rgba(194,113,12,.07);border-color:rgba(194,113,12,.28);color:var(--co)}
+.hact{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:38px auto 0;position:relative;z-index:1;animation:fu .9s ease .7s both}
+.btnp{padding:14px 36px;background:linear-gradient(135deg,var(--t1),var(--b1));color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:all .3s;box-shadow:0 4px 20px rgba(13,159,142,.28)}
+.btnp:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(13,159,142,.45)}
+.btns{padding:14px 36px;background:transparent;color:var(--tx);border:1.5px solid var(--bd2);border-radius:8px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:all .3s}
+.btns:hover{border-color:var(--t1);color:var(--t1);background:rgba(13,159,142,.05)}
+.hscroll{position:absolute;bottom:38px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;z-index:1;animation:fu 1s ease 1.1s both;opacity:.35;transition:opacity .2s}
+.hscroll:hover{opacity:.8}
+.hscroll span{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mt)}
+.sln{width:1px;height:34px;background:linear-gradient(180deg,var(--t1),transparent);animation:sl 2s ease infinite}
+@keyframes sl{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.trust{background:linear-gradient(135deg,#0b1728 0%,#1a3f8f 60%,#0d3d6e 100%);padding:36px 0}
+.trust-inner{max-width:1080px;margin:0 auto;padding:0 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:40px}
+.tstat{text-align:center}
+.tnum{font-family:'Bebas Neue',sans-serif;font-size:40px;letter-spacing:.04em;background:linear-gradient(135deg,var(--t2),var(--t1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.tlab{font-size:11px;color:rgba(255,255,255,.6);letter-spacing:.09em;text-transform:uppercase;margin-top:3px}
+.tdiv{width:1px;height:44px;background:rgba(255,255,255,.12)}
+@media(max-width:640px){.tdiv{display:none}}
+.probsec{background:var(--bg);border-bottom:1px solid var(--bd)}
+.prob-inner{max-width:1080px;margin:0 auto;padding:72px 28px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px}
+@media(max-width:800px){.prob-inner{grid-template-columns:1fr}}
+.prob-card{background:var(--cd);border:1px solid var(--bd);border-radius:18px;padding:30px;box-shadow:0 2px 16px rgba(11,23,40,.05);transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden}
+.prob-card:hover{transform:translateY(-5px);box-shadow:0 12px 36px rgba(11,23,40,.1)}
+.prob-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px}
+.pc1::after{background:linear-gradient(90deg,var(--co),var(--gd))}.pc2::after{background:linear-gradient(90deg,var(--t1),var(--b1))}.pc3::after{background:linear-gradient(90deg,var(--b1),var(--v1))}
+.pc-ico{font-size:32px;margin-bottom:14px}
+.pc-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px}
+.pc1 .pc-lbl{color:var(--co)}.pc2 .pc-lbl{color:var(--t1)}.pc3 .pc-lbl{color:var(--v1)}
+.pc-title{font-size:16px;font-weight:700;color:var(--tx);margin-bottom:10px;line-height:1.3}
+.pc-txt{font-size:13px;font-weight:300;color:var(--mt);line-height:1.8}
+.pc-txt strong{color:var(--tx);font-weight:600}
+section{position:relative}
+.sw{max-width:1080px;margin:0 auto;padding:96px 28px}
+.slb{font-family:'DM Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--t1);margin-bottom:14px;display:flex;align-items:center;gap:9px}
+.slb::before{content:'';width:20px;height:1px;background:var(--t1)}
+.sh{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,5vw,62px);letter-spacing:.03em;background:linear-gradient(135deg,var(--b1),var(--t1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
+.sd{font-size:15px;font-weight:300;color:var(--mt);line-height:1.9;max-width:580px}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+@keyframes fu{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.svc{background:var(--sf);border-top:1px solid var(--bd)}
+.miede-top{display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:center;margin-bottom:64px}
+@media(max-width:900px){.miede-top{grid-template-columns:1fr;gap:40px}}
+.version-badge{display:inline-flex;align-items:center;gap:7px;padding:6px 15px;border-radius:100px;background:rgba(123,63,168,.07);border:1px solid rgba(123,63,168,.25);color:var(--v1);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px}
+.version-badge svg{width:12px;height:12px}
+.phi-card{background:var(--cd);border:1px solid var(--bd);border-radius:20px;padding:38px;position:relative;overflow:hidden;box-shadow:0 4px 24px rgba(11,23,40,.07)}
+.phi-card::after{content:'MIEDE';position:absolute;right:-8px;bottom:-18px;font-family:'Bebas Neue',sans-serif;font-size:104px;color:rgba(13,159,142,.04);pointer-events:none}
+.macr{font-family:'Bebas Neue',sans-serif;font-size:46px;letter-spacing:.05em;background:linear-gradient(135deg,var(--t1),var(--b1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
+.phi-card h3{font-size:11px;font-weight:600;color:var(--mt);letter-spacing:.07em;text-transform:uppercase;margin-bottom:22px}
+.brow{margin-bottom:14px}
+.blab{display:flex;justify-content:space-between;font-size:11px;color:var(--mt);margin-bottom:5px}
+.blab em{font-style:normal;font-weight:700;color:var(--tx)}
+.btr{height:5px;background:var(--sf2);border-radius:3px;overflow:hidden}
+.bf{height:100%;border-radius:3px}
+.b1{background:linear-gradient(90deg,var(--t1),var(--b1))}.b2{background:linear-gradient(90deg,var(--b1),var(--v1))}.b3{background:linear-gradient(90deg,var(--mt2),var(--mt))}
+.strow{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap}
+.stb{flex:1;min-width:90px;padding:18px 12px;background:var(--sf2);border:1px solid var(--bd);border-radius:12px;text-align:center}
+.stn{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:.04em;background:linear-gradient(135deg,var(--t1),var(--b1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stl{font-size:10px;color:var(--mt);letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
+.flow-diagram{margin-bottom:48px}
+.flow-title{font-size:11px;font-weight:600;color:var(--mt);letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:8px;font-family:'DM Mono',monospace}
+.flow-title::before{content:'';width:16px;height:1px;background:var(--mt2)}
+.flow-steps{display:flex;flex-wrap:wrap;align-items:center;gap:7px}
+.fstep{display:flex;align-items:center;gap:7px;flex-shrink:0}
+.fs-pill{padding:7px 13px;border-radius:30px;border:1px solid;font-size:11px;font-weight:600;letter-spacing:.03em;white-space:nowrap;transition:transform .2s;cursor:default}
+.fs-pill:hover{transform:translateY(-2px)}
+.fs1{border-color:rgba(13,159,142,.35);color:var(--t1);background:rgba(13,159,142,.06)}
+.fs2{border-color:rgba(18,196,176,.35);color:#0a9a8a;background:rgba(18,196,176,.06)}
+.fs3{border-color:rgba(26,143,227,.35);color:#1470ba;background:rgba(26,143,227,.06)}
+.fs4{border-color:rgba(123,63,168,.4);color:var(--v1);background:rgba(123,63,168,.07)}
+.fs5{border-color:rgba(194,113,12,.35);color:var(--co);background:rgba(194,113,12,.06)}
+.fs6{border-color:rgba(26,63,143,.35);color:var(--b1);background:rgba(26,63,143,.06)}
+.fs7{border-color:rgba(13,159,142,.35);color:var(--t1);background:rgba(13,159,142,.06)}
+.fs8{border-color:rgba(157,95,212,.45);color:var(--v2);background:rgba(157,95,212,.07)}
+.fs-arr{color:var(--mt2);font-size:13px}
+@media(max-width:600px){.flow-steps{display:grid;grid-template-columns:1fr 1fr}.fs-arr{display:none}}
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:20px}
+.sc{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:28px;position:relative;overflow:hidden;box-shadow:0 2px 14px rgba(11,23,40,.05);transition:transform .3s,box-shadow .3s,border-color .3s}
+.sc:hover{transform:translateY(-5px);box-shadow:0 12px 36px rgba(11,23,40,.1)}
+.sc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.sc::after{content:attr(data-n);position:absolute;right:16px;bottom:6px;font-family:'Bebas Neue',sans-serif;font-size:68px;opacity:.04;line-height:1;color:var(--tx)}
+.s1::before{background:linear-gradient(90deg,#0d9f8e,#12c4b0)}.s1:hover{border-color:rgba(13,159,142,.35)}
+.s2::before{background:linear-gradient(90deg,#12c4b0,#1a8fe3)}.s2:hover{border-color:rgba(18,196,176,.35)}
+.s3::before{background:linear-gradient(90deg,#1a8fe3,#1a3f8f)}.s3:hover{border-color:rgba(26,143,227,.35)}
+.s4::before{background:linear-gradient(90deg,#7b3fa8,#9d5fd4)}.s4:hover{border-color:rgba(123,63,168,.45)}
+.s5::before{background:linear-gradient(90deg,#c2710c,#d4a520)}.s5:hover{border-color:rgba(194,113,12,.35)}
+.s6::before{background:linear-gradient(90deg,#1a3f8f,#7b3fa8)}.s6:hover{border-color:rgba(26,63,143,.35)}
+.s7::before{background:linear-gradient(90deg,#0d9f8e,#1a3f8f)}.s7:hover{border-color:rgba(13,159,142,.35)}
+.s8::before{background:linear-gradient(90deg,#7b3fa8,#0d9f8e,#1a3f8f)}.s8:hover{border-color:rgba(123,63,168,.45)}
+.sico{width:46px;height:46px;border-radius:12px;background:var(--sf);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
+.sn{font-family:'DM Mono',monospace;font-size:9px;color:var(--mt);letter-spacing:.16em;margin-bottom:5px}
+.snm{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:4px;line-height:1.3}
+.stag{font-size:12px;color:var(--mt);margin-bottom:11px;line-height:1.5;font-style:italic}
+.sds{font-size:12px;font-weight:300;color:var(--mt);line-height:1.75}
+.ai-tag{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:100px;background:rgba(123,63,168,.07);border:1px solid rgba(123,63,168,.2);color:var(--v1);font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-top:10px}
+.ctar{display:flex;justify-content:center;margin-top:60px}
+.mhsec{border-top:1px solid var(--bd);background:var(--bg)}
+.mhgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:700px){.mhgrid{grid-template-columns:1fr}}
+.mhcard{background:var(--cd);border:1px solid var(--bd);border-radius:18px;padding:32px 28px;position:relative;overflow:hidden;box-shadow:0 2px 14px rgba(11,23,40,.05);transition:transform .3s,box-shadow .3s}
+.mhcard:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(11,23,40,.09)}
+.mhcard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px}
+.mhc1::after{background:linear-gradient(90deg,var(--t1),var(--b1))}.mhc2::after{background:linear-gradient(90deg,var(--co),var(--gd))}.mhc3::after{background:linear-gradient(90deg,var(--v1),var(--t1))}
+.mhico{font-size:30px;margin-bottom:14px;line-height:1}
+.mhtit{font-size:15px;font-weight:700;color:var(--tx);margin-bottom:10px}
+.mhtx{font-size:12px;font-weight:300;color:var(--mt);line-height:1.8}
+.rsec{border-top:1px solid var(--bd);background:var(--sf)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:22px;margin-top:56px}
+.rcard{background:var(--cd);border:1px solid var(--bd);border-radius:20px;padding:34px 28px;position:relative;overflow:hidden;box-shadow:0 2px 16px rgba(11,23,40,.05);transition:all .3s;display:flex;flex-direction:column;text-decoration:none}
+.rcard::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--rc,rgba(13,159,142,.06)),transparent 60%);opacity:0;transition:opacity .3s}
+.rcard:hover{transform:translateY(-6px);border-color:var(--rb,rgba(13,159,142,.35));box-shadow:0 16px 44px var(--rs,rgba(13,159,142,.12))}
+.rcard:hover::before{opacity:1}
+.rico{width:54px;height:54px;border-radius:14px;background:var(--rib,rgba(13,159,142,.08));border:1px solid var(--ribo,rgba(13,159,142,.2));display:flex;align-items:center;justify-content:center;font-size:25px;margin-bottom:22px;position:relative;z-index:1;transition:transform .3s}
+.rcard:hover .rico{transform:scale(1.08) rotate(-3deg)}
+.rlab{font-family:'DM Mono',monospace;font-size:9px;color:var(--ra,var(--t1));letter-spacing:.16em;text-transform:uppercase;margin-bottom:9px;position:relative;z-index:1}
+.rttl{font-size:16px;font-weight:700;color:var(--tx);line-height:1.35;margin-bottom:10px;position:relative;z-index:1}
+.rdsc{font-size:12px;font-weight:300;color:var(--mt);line-height:1.78;flex:1;position:relative;z-index:1}
+.rarr{display:flex;align-items:center;gap:7px;margin-top:22px;font-size:11px;font-weight:600;color:var(--ra,var(--t1));letter-spacing:.09em;text-transform:uppercase;position:relative;z-index:1;transition:gap .2s}
+.rcard:hover .rarr{gap:11px}.rarr svg{width:15px;height:15px;flex-shrink:0}
+.r1{--ra:var(--t1);--rc:rgba(13,159,142,.06);--rb:rgba(13,159,142,.3);--rs:rgba(13,159,142,.1);--rib:rgba(13,159,142,.07);--ribo:rgba(13,159,142,.18)}
+.r2{--ra:var(--v1);--rc:rgba(123,63,168,.06);--rb:rgba(123,63,168,.3);--rs:rgba(123,63,168,.1);--rib:rgba(123,63,168,.07);--ribo:rgba(123,63,168,.18)}
+.r3{--ra:#178f70;--rc:rgba(23,143,112,.06);--rb:rgba(23,143,112,.3);--rs:rgba(23,143,112,.1);--rib:rgba(23,143,112,.07);--ribo:rgba(23,143,112,.18)}
+.r4{--ra:var(--co);--rc:rgba(194,113,12,.06);--rb:rgba(194,113,12,.3);--rs:rgba(194,113,12,.1);--rib:rgba(194,113,12,.07);--ribo:rgba(194,113,12,.18)}
+.expsec{border-top:1px solid var(--bd);background:var(--bg)}
+.expgrid{display:grid;grid-template-columns:1.15fr 1fr;gap:76px;align-items:start}
+@media(max-width:900px){.expgrid{grid-template-columns:1fr;gap:48px}}
+.expc p{font-size:15px;font-weight:300;color:var(--mt);line-height:1.95;margin-bottom:18px}
+.expc strong{color:var(--tx);font-weight:600}
+.bgs{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+.bg{padding:6px 15px;border-radius:100px;font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;border:1px solid}
+.bg1{background:rgba(13,159,142,.07);border-color:rgba(13,159,142,.24);color:var(--t1)}
+.bg2{background:rgba(194,113,12,.07);border-color:rgba(194,113,12,.24);color:var(--co)}
+.bg3{background:rgba(123,63,168,.07);border-color:rgba(123,63,168,.24);color:var(--v1)}
+.bg4{background:rgba(26,63,143,.07);border-color:rgba(26,63,143,.24);color:var(--b1)}
+.exps{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.estat{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:28px 20px;text-align:center;box-shadow:0 2px 14px rgba(11,23,40,.05);transition:transform .3s,box-shadow .3s,border-color .3s}
+.estat:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(11,23,40,.1);border-color:rgba(13,159,142,.22)}
+.en{font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:.04em;line-height:1;background:linear-gradient(135deg,var(--t1),var(--b1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.eu{font-family:'Bebas Neue',sans-serif;font-size:26px;background:linear-gradient(135deg,var(--t1),var(--b1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.el{font-size:11px;color:var(--mt);letter-spacing:.09em;text-transform:uppercase;margin-top:5px;line-height:1.4}
+.clsec{border-top:1px solid var(--bd);background:var(--sf)}
+.clgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:14px;margin-top:54px}
+.clic{background:var(--cd);border:1px solid var(--bd);border-radius:14px;padding:22px 14px;text-align:center;box-shadow:0 2px 10px rgba(11,23,40,.04);transition:all .3s;cursor:default;display:flex;flex-direction:column;align-items:center;gap:10px}
+.clic:hover{transform:translateY(-5px);border-color:rgba(13,159,142,.3);box-shadow:0 10px 28px rgba(13,159,142,.1)}
+.clogo{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.04em;color:rgba(255,255,255,.95);filter:grayscale(25%);transition:filter .3s}
+.clic:hover .clogo{filter:grayscale(0%)}
+.cnam{font-size:13px;font-weight:700;color:var(--tx);line-height:1.2}
+.cind{font-size:9px;color:var(--mt);letter-spacing:.07em;text-transform:uppercase}
+.lg1{background:linear-gradient(135deg,#0d9f8e,#12c4b0)}.lg2{background:linear-gradient(135deg,#1a3f8f,#2558c4)}.lg3{background:linear-gradient(135deg,#7b3fa8,#9d5fd4)}.lg4{background:linear-gradient(135deg,#c2710c,#d4a520)}.lg5{background:linear-gradient(135deg,#12c4b0,#1a8fe3)}.lg6{background:linear-gradient(135deg,#1a8fe3,#1a3f8f)}.lg7{background:linear-gradient(135deg,#9d5fd4,#7b3fa8)}.lg8{background:linear-gradient(135deg,#d4a520,#c2710c)}.lg9{background:linear-gradient(135deg,#0d9f8e,#1a3f8f)}.lg10{background:linear-gradient(135deg,#1a3f8f,#7b3fa8)}.lg11{background:linear-gradient(135deg,#c2290c,#c2710c)}.lg12{background:linear-gradient(135deg,#12c4b0,#0d9f8e)}
+.clic-feat{grid-column:span 2;background:linear-gradient(135deg,rgba(13,159,142,.04),rgba(26,63,143,.04));border-color:rgba(13,159,142,.2);flex-direction:row;gap:14px;padding:20px 22px;align-items:center;justify-content:flex-start}
+.clic-feat .clogo{flex-shrink:0}
+.clic-feat .cinfo{text-align:left}
+.clic-feat .cnam{font-size:14px}
+@media(max-width:500px){.clic-feat{grid-column:span 1;flex-direction:column}.clic-feat .cinfo{text-align:center}}
+.ctasec{border-top:1px solid var(--bd);background:var(--bg)}
+.ctabox{background:linear-gradient(135deg,#0b1728 0%,#1a3f8f 50%,#12225e 100%);border-radius:24px;padding:76px 56px;text-align:center;position:relative;overflow:hidden}
+.ctabox::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 65% at 50% 0%,rgba(13,159,142,.25) 0%,transparent 58%),radial-gradient(ellipse 40% 40% at 95% 80%,rgba(123,63,168,.2) 0%,transparent 50%)}
+.ctabox::after{content:'';position:absolute;width:250px;height:250px;border:1px solid rgba(255,255,255,.06);transform:rotate(45deg);right:-60px;bottom:-60px;border-radius:6px}
+.ctabox h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,5vw,62px);letter-spacing:.04em;color:#fff;margin-bottom:10px;position:relative;z-index:1}
+.ctabox p{font-size:15px;font-weight:300;color:rgba(255,255,255,.75);max-width:480px;margin:0 auto 32px;position:relative;z-index:1;line-height:1.85}
+.cta-btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;position:relative;z-index:1}
+.btn-cal{padding:15px 36px;background:linear-gradient(135deg,var(--t1),var(--b1));color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:all .3s;box-shadow:0 4px 20px rgba(13,159,142,.35)}
+.btn-cal:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(13,159,142,.5)}
+
+
+
+@media(max-width:640px){.ctabox{padding:52px 28px}}
+footer{background:var(--nv);padding:48px 52px}
+.fi{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:22px}
+.fbr p{font-size:11px;color:rgba(255,255,255,.4);margin-top:5px}
+.fl{display:flex;gap:26px;list-style:none}
+.fl a{font-size:11px;color:rgba(255,255,255,.45);text-decoration:none;letter-spacing:.07em;text-transform:uppercase;transition:color .2s}
+.fl a:hover{color:#fff}
+.fcp{font-size:11px;color:rgba(255,255,255,.4);text-align:right}
+.fi .nlt1{color:rgba(255,255,255,.55)}.fi .nlt2{-webkit-text-fill-color:unset;color:var(--t2)}
+@media(max-width:640px){footer{padding:36px 20px}.fi{flex-direction:column;align-items:flex-start}.fcp{text-align:left}}
+
+
+
+
+
+.cal-overlay{position:fixed;inset:0;background:rgba(11,23,40,.65);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px)}
+.cal-overlay.show{display:flex}
+.cal-box{background:#fff;border-radius:20px;padding:40px 36px;max-width:500px;width:100%;text-align:center;position:relative;box-shadow:0 20px 60px rgba(11,23,40,.3)}
+.cal-close{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:50%;background:var(--sf2);border:none;cursor:pointer;font-size:15px;color:var(--mt);display:flex;align-items:center;justify-content:center;transition:background .2s}
+.cal-close:hover{background:var(--sf)}
+.cal-ico{font-size:38px;margin-bottom:10px}
+.cal-h{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:.04em;background:linear-gradient(135deg,var(--b1),var(--t1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px}
+.cal-p{font-size:14px;color:var(--mt);line-height:1.75;margin-bottom:22px}
+.cal-actions{display:flex;flex-direction:column;gap:11px}
+.cal-btn-main{padding:13px 28px;background:linear-gradient(135deg,var(--t1),var(--b1));color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:block;transition:all .3s;box-shadow:0 4px 18px rgba(13,159,142,.28)}
+.cal-btn-main:hover{box-shadow:0 8px 26px rgba(13,159,142,.45)}
+
+
+
+
+.cal-note{font-size:10px;color:var(--mt2);margin-top:14px;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="pb" id="pb"></div>
+<nav id="nav">
+  <a href="#" class="nlogo">
+    <div class="nlogo-img-wrap">
+      <img src="Logo_horizontal.png" alt="Transformación ExO" class="nlogo-img" onerror="this.style.display='none';document.getElementById('nm-fb').style.display='flex'">
+      <div id="nm-fb" style="display:none;font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;letter-spacing:.05em">TX</div>
+    </div>
+    <div class="nlogo-text"><span class="nlt1">Transformación</span><span class="nlt2">ExO</span></div>
+  </a>
+  <ul class="nl">
+    <li><a href="#servicios">MIEDE X 2.0</a></li>
+    <li><a href="#recursos">Recursos</a></li>
+    <li><a href="#experiencia">Experiencia</a></li>
+    <li><a href="#clientes">Clientes</a></li>
+    <li><a href="blog.html" style="color:var(--v1)">Blog</a></li>
+  </ul>
+  <a href="#contacto" class="ncta" id="nav-cta">Empieza tu Transformación →</a>
+</nav>
+<section class="hero" id="home">
+  <div class="hbg"></div><div class="hgrid"></div>
+  <div class="hd1"></div><div class="hd2"></div><div class="hd3"></div>
+  <div class="pts" id="pts"></div>
+  <div class="award-badge">
+    <span class="aw-ico">🏆</span>
+    <div>
+      <div class="aw-txt">Premio ExO Mindset Award Latam</div>
+      <div class="aw-src">ExO Latam (OpenExO) · El mayor reconocimiento ExO de la región</div>
+    </div>
+  </div>
+  <h1 class="hh"><span class="l1">Evolucionamos</span><span class="l2">Empresas</span></h1>
+  <div class="hsub">
+    <div class="hsub-main">Reducimos costos, optimizamos procesos y escalamos tu empresa con IA.</div>
+    <div class="hsub-detail">Metodología <strong>MIEDE X 2.0</strong> — 8 etapas probadas con <strong>Inteligencia Artificial integrada</strong>. Transformación real que empieza por las personas.</div>
+  </div>
+  <div class="hpills">
+    <div class="hp hp1">↓ Costos operativos</div>
+    <div class="hp hp2">↑ Eficiencia con IA</div>
+    <div class="hp hp3">↑ Escala exponencial</div>
+    <div class="hp hp4">70% Personas primero</div>
+  </div>
+  <div class="hact">
+    <a href="#contacto" class="btnp" onclick="openCal(event)">📅 Agenda tu Diagnóstico Gratuito</a>
+    <a href="#servicios" class="btns">Ver Metodología MIEDE X 2.0</a>
+  </div>
+  <div class="hscroll" onclick="document.getElementById('trust').scrollIntoView({behavior:'smooth'})">
+    <span>Descubrir</span><div class="sln"></div>
+  </div>
+</section>
+<div class="trust" id="trust">
+  <div class="trust-inner">
+    <div class="tstat"><div class="tnum">30+</div><div class="tlab">Empresas Impactadas</div></div>
+    <div class="tdiv"></div>
+    <div class="tstat"><div class="tnum">30+</div><div class="tlab">Años Evolucionando Empresas</div></div>
+    <div class="tdiv"></div>
+    <div class="tstat"><div class="tnum">8</div><div class="tlab">Etapas MIEDE X 2.0 con IA</div></div>
+    <div class="tdiv"></div>
+    <div class="tstat"><div class="tnum">70%</div><div class="tlab">Foco en Personas</div></div>
+    <div class="tdiv"></div>
+    <div class="tstat"><div class="tnum">🏆</div><div class="tlab">ExO Mindset Award Latam</div></div>
+  </div>
+</div>
+<div class="probsec">
+  <div class="prob-inner">
+    <div class="prob-card pc1 rv">
+      <div class="pc-ico">😓</div>
+      <div class="pc-lbl">El problema</div>
+      <div class="pc-title">Tu empresa crece, pero los costos e ineficiencias también</div>
+      <div class="pc-txt">Procesos manuales que frenan la velocidad. Datos sin aprovechar. Equipos con miedo a la IA. Competidores que ya están automatizando. El mercado no espera.</div>
+    </div>
+    <div class="prob-card pc2 rv d1">
+      <div class="pc-ico">🧭</div>
+      <div class="pc-lbl">La solución</div>
+      <div class="pc-title">MIEDE X 2.0: el camino probado hacia la transformación con IA</div>
+      <div class="pc-txt">8 etapas con IA integrada. <strong>No teoría de escritorio</strong>: metodología desarrollada desde +30 años de práctica real con empresas ecuatorianas y latinoamericanas.</div>
+    </div>
+    <div class="prob-card pc3 rv d2">
+      <div class="pc-ico">🚀</div>
+      <div class="pc-lbl">Los beneficios</div>
+      <div class="pc-title">Costos reducidos, procesos optimizados, escala exponencial</div>
+      <div class="pc-txt">Las empresas que implementan MIEDE reportan: <strong>reducción de costos operativos</strong>, <strong>procesos automatizados</strong> y <strong>decisiones basadas en datos</strong> en lugar de intuición.</div>
+    </div>
+  </div>
+</div>
+<section id="servicios" class="svc">
+  <div class="sw">
+    <div class="miede-top">
+      <div>
+        <div class="version-badge rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>MIEDE versión 2.0 · IA Integrada</div>
+        <p class="slb rv">Nuestro Método Propietario</p>
+        <h2 class="sh rv d1">El MIEDE X 2.0</h2>
+        <p class="sd rv d2">El <strong style="color:var(--tx);font-weight:600">Modelo Integral de Evolución Digital Empresarial</strong> v2.0 incorpora <strong style="color:var(--tx);font-weight:600">Inteligencia Artificial como habilitador transversal</strong> en cada una de sus 8 etapas. Metodología nacida de +30 años de experiencia real en Ecuador y América Latina.</p>
+        <div class="strow rv d3">
+          <div class="stb"><div class="stn">8</div><div class="stl">Etapas con IA</div></div>
+          <div class="stb"><div class="stn">30+</div><div class="stl">Empresas</div></div>
+          <div class="stb"><div class="stn">ExO</div><div class="stl">Award Latam</div></div>
+        </div>
+      </div>
+      <div class="phi-card rv">
+        <div class="macr">MIEDE</div>
+        <h3>Modelo Integral de Evolución Digital Empresarial v2.0</h3>
+        <div class="brow"><div class="blab"><span>Personas y Cultura</span><em>70%</em></div><div class="btr"><div class="bf b1" style="width:70%"></div></div></div>
+        <div class="brow"><div class="blab"><span>Metodología y Procesos</span><em>25%</em></div><div class="btr"><div class="bf b2" style="width:25%"></div></div></div>
+        <div class="brow"><div class="blab"><span>Tecnología + IA</span><em>5%</em></div><div class="btr"><div class="bf b3" style="width:5%"></div></div></div>
+        <p style="font-size:13px;color:var(--mt);line-height:1.75;margin-top:22px;font-weight:300">Inspirado en <strong style="color:var(--tx);font-weight:600">Salim Ismail</strong> (ExO), <strong style="color:var(--tx);font-weight:600">David L. Rogers</strong> y <strong style="color:var(--tx);font-weight:600">Peter Diamandis</strong>.</p>
+      </div>
+    </div>
+    <div class="flow-diagram rv">
+      <div class="flow-title">Flujo de las 8 etapas del MIEDE X 2.0</div>
+      <div class="flow-steps">
+        <div class="fstep"><div class="fs-pill fs1">🏛 01 · Diagnóstico</div><div class="fs-arr">→</div></div>
+        <div class="fstep"><div class="fs-pill fs2">💡 02 · Estrategia</div><div class="fs-arr">→</div></div>
+        <div class="fstep"><div class="fs-pill fs3">⚙️ 03 · Optimización</div><div class="fs-arr">→</div></div>
+        <div class="fstep"><div class="fs-pill fs4">🧠 04 · Integración IA</div><div class="fs-arr">→</div></div>
+        <div class="fstep"><div class="fs-pill fs5">🔬 05 · Innovación</div><div class="fs-arr">→</div></div>
+        <div class="fstep"><div class="fs-pill fs6">🌱 06 · Capacidades</div><div class="fs-arr">→</div></div>
+        <div class="fstep"><div class="fs-pill fs7">🚀 07 · Disrupción</div><div class="fs-arr">→</div></div>
+        <div class="fstep"><div class="fs-pill fs8">✨ 08 · Fusión Total</div></div>
+      </div>
+    </div>
+    <div class="steps-grid">
+      <div class="sc s1 rv" data-n="01"><div class="sico">🏛</div><div class="sn">Etapa 01 · Diagnóstico</div><div class="snm">Evaluación del Estado Actual con IA</div><div class="stag">Radiografía honesta potenciada por IA</div><div class="sds">Diagnóstico integral de fortalezas, debilidades y madurez digital. La IA analiza patrones, identifica cuellos de botella y genera un mapa de prioridades accionable. Sin autoengaños.</div><div class="ai-tag">🤖 IA Diagnóstica</div></div>
+      <div class="sc s2 rv d1" data-n="02"><div class="sico">💡</div><div class="sn">Etapa 02 · Estrategia</div><div class="snm">Estrategia Digital + Hoja de Ruta IA</div><div class="stag">Visión exponencial y roadmap de IA alineado al negocio</div><div class="sds">Visión transformadora con prospectiva tecnológica. Roadmap de adopción de IA a 12-36 meses, alineado con los objetivos estratégicos y la realidad organizacional.</div><div class="ai-tag">🤖 IA Estratégica</div></div>
+      <div class="sc s3 rv d2" data-n="03"><div class="sico">⚙️</div><div class="sn">Etapa 03 · Optimización</div><div class="snm">Optimización Operativa + Automatización Inteligente</div><div class="stag">Digitalizar y automatizar para reducir costos y liberar capacidad humana</div><div class="sds">Los procesos se digitalizan con automatización inteligente impulsada por IA. Se eliminan fricciones y se libera capital humano y financiero para la innovación.</div><div class="ai-tag">🤖 IA Operacional</div></div>
+      <div class="sc s4 rv d3" data-n="04"><div class="sico">🧠</div><div class="sn">Etapa 04 · Integración IA <span style="background:rgba(123,63,168,.1);border:1px solid rgba(123,63,168,.28);color:var(--v1);font-size:8px;padding:2px 7px;border-radius:10px;font-family:'DM Mono',monospace;letter-spacing:.1em">NUEVO v2.0</span></div><div class="snm">Integración Estratégica de IA en el Negocio</div><div class="stag">De IA experimental a IA en producción con ROI medible</div><div class="sds">Primeros proyectos de IA en producción con ROI claro. Gobernanza de datos y ética de IA. El puente entre digitalización e inteligencia que genera ventaja competitiva real.</div><div class="ai-tag">🤖 IA Generativa + Agentes</div></div>
+      <div class="sc s5 rv" data-n="05"><div class="sico">🔬</div><div class="sn">Etapa 05 · Innovación</div><div class="snm">Innovación en el Modelo de Negocio con IA Generativa</div><div class="stag">Crear nuevos ingresos potenciados por IA</div><div class="sds">Nuevos productos, servicios y experiencias diseñadas con IA generativa. Experimentación disciplinada con métricas claras de éxito. La innovación como capacidad sostenida.</div><div class="ai-tag">🤖 IA Generativa</div></div>
+      <div class="sc s6 rv d1" data-n="06"><div class="sico">🌱</div><div class="sn">Etapa 06 · Capacidades</div><div class="snm">Desarrollo de Capacidades + IA Literacy</div><div class="stag">El 70% del éxito: personas competentes y seguras con IA</div><div class="sds">Programas de IA para todos los niveles, gestión del cambio, cultura de experimentación y campeones de IA. Sin personas comprometidas no hay transformación.</div><div class="ai-tag">🤖 IA Literacy</div></div>
+      <div class="sc s7 rv d2" data-n="07"><div class="sico">🚀</div><div class="sn">Etapa 07 · Disrupción</div><div class="snm">Modelo de Negocio Disruptivo con IA Exponencial</div><div class="stag">Redefinir las reglas del sector antes que la competencia</div><div class="sds">Agentes de IA en operación, modelos con escala no lineal, plataformas de datos inteligentes. El objetivo: protagonizar la disrupción del sector, no ser su víctima.</div><div class="ai-tag">🤖 Agentes IA</div></div>
+      <div class="sc s8 rv d3" data-n="08"><div class="sico">✨</div><div class="sn">Etapa 08 · Fusión Total</div><div class="snm">Fusión Digital Total + Ecosistema IA</div><div class="stag">Tecnología, cultura e IA en el ADN de la organización</div><div class="sds">La IA ya no es un proyecto: es la forma natural de operar. +50% empleados usan IA diariamente. Reinvención continua como ventaja competitiva que nadie puede copiar.</div><div class="ai-tag">🤖 Ecosistema IA Completo</div></div>
+    </div>
+    <div class="ctar rv"><a href="miede.html" target="_blank" class="btnp">Explorar el Modelo Completo MIEDE X 2.0 →</a></div>
+  </div>
+</section>
+<section class="mhsec">
+  <div class="sw">
+    <p class="slb rv">Principios Que Guían Todo</p>
+    <h2 class="sh rv d1">Lo que Atraviesa Cada Etapa</h2>
+    <div class="mhgrid" style="margin-top:48px">
+      <div class="mhcard mhc1 rv"><div class="mhico">🔄</div><div class="mhtit">Las etapas se retroalimentan</div><div class="mhtx">El MIEDE no es lineal en la práctica: cada etapa genera insumos para las siguientes y los aprendizajes informan ajustes en las anteriores. Saltarse pasos compromete la sostenibilidad.</div></div>
+      <div class="mhcard mhc2 rv d1"><div class="mhico">🧭</div><div class="mhtit">La IA como brújula estratégica</div><div class="mhtx">En el MIEDE X 2.0 la IA actúa como habilitador transversal en cada decisión. No es herramienta de soporte: es el motor central de la evolución exponencial.</div></div>
+      <div class="mhcard mhc3 rv d2"><div class="mhico">💎</div><div class="mhtit">Experiencias extraordinarias</div><div class="mhtx">La verdadera ventaja reside en crear experiencias que trasciendan lo funcional. El "lujo democratizado" con IA como diferenciación sostenible que ningún competidor puede copiar directamente.</div></div>
+    </div>
+  </div>
+</section>
+<section id="recursos" class="rsec">
+  <div class="sw">
+    <p class="slb rv">Herramientas Interactivas Gratuitas</p>
+    <h2 class="sh rv d1">Recursos para tu Evolución</h2>
+    <p class="sd rv d2">Evalúa, mide y transforma tu empresa con herramientas diseñadas desde el MIEDE para darte claridad real sobre tu posición digital y el camino hacia la evolución exponencial.</p>
+    <div class="rgrid">
+      <a href="evaluacion-digital.html" target="_blank" class="rcard r1 rv"><div class="rico">📊</div><div class="rlab">Evaluación Digital</div><div class="rttl">Evaluación de Madurez Digital</div><div class="rdsc">7 dimensiones clave: Estrategia &amp; Liderazgo, Experiencia del Cliente, Operaciones, Tecnología, Datos, Personas y Cultura, e Innovación. 65 criterios basados en Deloitte, MIT, KPMG, BCG y Gartner.</div><div class="rarr">Iniciar Evaluación <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></a>
+      <a href="evaluacion-ia.html" target="_blank" class="rcard r2 rv d1"><div class="rico">🤖</div><div class="rlab">Madurez IA</div><div class="rttl">Evaluación de Madurez para IA</div><div class="rdsc">¿Está tu empresa lista para IA escalable? 7 dimensiones: Estrategia, Datos, Tecnología, Personas (la más crítica), Procesos, Gobernanza e Innovación. MIT CISR, McKinsey y Gartner.</div><div class="rarr">Medir Preparación IA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></a>
+      <a href="canvas-evolutivo.html" target="_blank" class="rcard r3 rv d2"><div class="rico">🎨</div><div class="rlab">Canvas con IA</div><div class="rttl">Canvas Evolutivo con IA</div><div class="rdsc">Rediseña tu modelo de negocio del AS-IS al TO-BE guiado por IA. Los 9 bloques del Business Model Canvas evolucionados con 4 nuevos pilares esenciales de la era IA.</div><div class="rarr">Desarrollar Canvas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></a>
+      <a href="miede.html" target="_blank" class="rcard r4 rv d3"><div class="rico">🏗</div><div class="rlab">Modelo MIEDE</div><div class="rttl">Modelo MIEDE X 2.0 Interactivo</div><div class="rdsc">Explora las 8 etapas del MIEDE X 2.0 con IA integrada. Comprende qué hace tu empresa en cada fase y cómo la IA transforma el camino hacia la Fusión Digital.</div><div class="rarr">Explorar el Modelo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></a>
+    </div>
+  </div>
+</section>
+<section id="experiencia" class="expsec">
+  <div class="sw">
+    <div class="expgrid">
+      <div class="expc">
+        <p class="slb rv">Quién Está Detrás</p>
+        <h2 class="sh rv d1">Experiencia Real,<br>Resultados Exponenciales</h2>
+        <p class="rv d2"><strong>Juan Carlos Alzate García</strong> es el fundador de Transformación ExO y ganador del <strong>Premio ExO Mindset Award Latam</strong>, el reconocimiento más importante de la región en transformación organizacional exponencial otorgado por Singularity University.</p>
+        <p class="rv d2">Con <strong>más de 30 años evolucionando empresas y personas</strong> en Ecuador y América Latina, ha impactado a <strong>más de 30 organizaciones</strong> con el MIEDE —metodología desarrollada desde la práctica real, no desde teorías de escritorio—.</p>
+        <p class="rv d2">Su convicción central: <strong>la transformación digital no es un problema tecnológico, es un desafío de personas y cultura.</strong> Por eso el 70% del MIEDE está centrado en el factor humano, incluso cuando se habla de IA.</p>
+        <div class="bgs rv d3">
+          <span class="bg bg1">Premio ExO Mindset Award Latam</span>
+          <span class="bg bg2">Certified ExO Coach</span>
+          <span class="bg bg3">Estrategia de IA</span>
+          <span class="bg bg4">Transformación Cultural</span>
+        </div>
+      </div>
+      <div class="exps rv">
+        <div class="estat"><div class="en">30<span class="eu">+</span></div><div class="el">Empresas Impactadas</div></div>
+        <div class="estat"><div class="en">8</div><div class="el">Etapas MIEDE X 2.0 con IA</div></div>
+        <div class="estat"><div class="en">30<span class="eu">+</span></div><div class="el">Años Evolucionando Empresas</div></div>
+        <div class="estat"><div class="en">🏆</div><div class="el">Premio ExO Mindset Latam</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="clientes" class="clsec">
+  <div class="sw">
+    <p class="slb rv">Confianza Comprobada</p>
+    <h2 class="sh rv d1">Empresas que Evolucionaron</h2>
+    <p class="sd rv d2">Organizaciones líderes de Ecuador y América Latina que tomaron la decisión de evolucionar y hoy operan con mentalidad digital y capacidades de IA en su ADN.</p>
+    <div class="clgrid">
+      <div class="clic rv"><div class="clogo lg1">CC</div><div class="cnam">Ciudad Celeste</div><div class="cind">Corpacel · Urbanismo</div></div>
+      <div class="clic rv d1"><div class="clogo lg2">LJ</div><div class="cnam">La Joya</div><div class="cind">Dismedsa · Comercial</div></div>
+      <div class="clic rv d2"><div class="clogo lg3">VR</div><div class="cnam">Villa del Rey</div><div class="cind">Meisterblue · Inmobiliaria</div></div>
+      <div class="clic rv d3"><div class="clogo lg4">VC</div><div class="cnam">Villa Club</div><div class="cind">Corsam · Clubes</div></div>
+      <div class="clic rv"><div class="clogo lg5">IR</div><div class="cnam">Isirent</div><div class="cind">Alquiler &amp; Servicios</div></div>
+      <div class="clic rv d1"><div class="clogo lg6">JP</div><div class="cnam">JR Parts</div><div class="cind">Autopartes · Distribución</div></div>
+      <div class="clic rv d2"><div class="clogo lg7">ON</div><div class="cnam">Ondu</div><div class="cind">Tecnología</div></div>
+      <div class="clic rv d3"><div class="clogo lg8">PN</div><div class="cnam">Pronobis</div><div class="cind">Construcción &amp; Desarrollo</div></div>
+      <div class="clic rv"><div class="clogo lg9">CB</div><div class="cnam">Corbalconsa</div><div class="cind">Construcción</div></div>
+      <div class="clic rv d1"><div class="clogo lg10">LF</div><div class="cnam">LFG Inmobiliaria</div><div class="cind">Bienes Raíces</div></div>
+      <div class="clic rv d2"><div class="clogo lg11">MS</div><div class="cnam">Mall del Sol</div><div class="cind">Retail &amp; Entretenimiento</div></div>
+      <div class="clic rv d3"><div class="clogo lg12">CT</div><div class="cnam">Cirion Tech</div><div class="cind">Tecnología &amp; Telecom</div></div>
+      <div class="clic rv"><div class="clogo lg1">RC</div><div class="cnam">Rep. Continental</div><div class="cind">Representaciones Comerciales</div></div>
+      <div class="clic rv d1"><div class="clogo lg2">DC</div><div class="cnam">Droguerías Continental</div><div class="cind">Salud &amp; Farmacéutico</div></div>
+      <div class="clic rv d2"><div class="clogo lg4">GN</div><div class="cnam">Grupo Nobis</div><div class="cind">Grupo Empresarial</div></div>
+      <div class="clic clic-feat rv d3">
+        <div class="clogo" style="background:linear-gradient(135deg,var(--t1),var(--b1),var(--v1));width:50px;height:50px;flex-shrink:0;font-size:14px">AP</div>
+        <div class="cinfo">
+          <div class="cnam">Alianza del Pacífico · Transferencia AP</div>
+          <div class="cind" style="font-size:9px;line-height:1.6">Company Builder · Chile · México · Colombia · Perú</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="contacto" class="ctasec">
+  <div class="sw">
+    <div class="ctabox">
+      <h2>Empieza tu Transformación Hoy</h2>
+      <p>Agenda una sesión de diagnóstico gratuita. Descubre en qué etapa del MIEDE X 2.0 está tu empresa y tu potencial real de crecimiento con IA.</p>
+      <div class="cta-btns">
+        <a href="#" class="btn-cal" onclick="openCal(event)">📅 Agenda con Calendly — Gratis</a>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="fi">
+    <div class="fbr">
+      <a href="#" class="nlogo">
+        <div class="nlogo-img-wrap"><img src="Logo_horizontal.png" alt="TX" class="nlogo-img" onerror="this.style.display='none'"><div style="font-family:'Bebas Neue',sans-serif;font-size:17px;color:#fff;letter-spacing:.05em">TX</div></div>
+        <div class="nlogo-text"><span class="nlt1">Transformación</span><span class="nlt2">ExO</span></div>
+      </a>
+      <p>Premio ExO Mindset Award Latam · Ecuador &amp; América Latina · MIEDE X 2.0</p>
+    </div>
+    <ul class="fl">
+      <li><a href="#servicios">MIEDE</a></li>
+      <li><a href="#recursos">Recursos</a></li>
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#clientes">Clientes</a></li>
+    </ul>
+    <div class="fcp"><div>© 2025 Transformación ExO</div><div>Juan Carlos Alzate García</div></div>
+  </div>
+</footer>
+
+<div class="cal-overlay" id="calOverlay" onclick="if(event.target===this)closeCal()">
+  <div class="cal-box">
+    <button class="cal-close" onclick="closeCal()">✕</button>
+    <div class="cal-ico">📅</div>
+    <h2 class="cal-h">Agenda tu Diagnóstico Gratuito</h2>
+    <p class="cal-p">Sesión 1:1 con Juan Carlos Alzate García. Sin costo, sin compromiso. Descubre en qué etapa del MIEDE X 2.0 está tu empresa y cuál es tu potencial de transformación con IA.</p>
+    <div class="cal-actions">
+      <a href="https://calendly.com/transformacionexo" target="_blank" class="cal-btn-main" onclick="closeCal()">🗓 Ver disponibilidad en Calendly</a>
+    </div>
+    <p class="cal-note">100% gratuito · Sin compromiso · Respuesta en menos de 24h</p>
+  </div>
+</div>
+<script>
+(function(){const c=document.getElementById('pts');const cols=['rgba(13,159,142,.35)','rgba(26,63,143,.28)','rgba(123,63,168,.22)','rgba(194,113,12,.2)'];for(let i=0;i<22;i++){const p=document.createElement('div');p.className='pt';p.style.cssText=`left:${Math.random()*100}%;--dur:${8+Math.random()*10}s;--del:${Math.random()*15}s;--dr:${(Math.random()-.5)*70}px;background:${cols[Math.floor(Math.random()*cols.length)]};width:${2+Math.random()*2}px;height:${2+Math.random()*2}px`;c.appendChild(p);}})();
+const nav=document.getElementById('nav');const pb=document.getElementById('pb');
+window.addEventListener('scroll',()=>{nav.classList.toggle('sc',window.scrollY>40);pb.style.width=((window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100)+'%';});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}});});
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis')});},{threshold:.08,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+function openCal(e){if(e)e.preventDefault();document.getElementById('calOverlay').classList.add('show');document.body.style.overflow='hidden';}
+function closeCal(){document.getElementById('calOverlay').classList.remove('show');document.body.style.overflow='';}
+document.getElementById('nav-cta').addEventListener('click',function(e){e.preventDefault();openCal();});
+</script>
+</body>
+</html>

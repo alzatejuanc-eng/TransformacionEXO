@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evaluación de Madurez Digital — Transformación ExO</title>
+<meta name="description" content="Descubre en qué nivel digital está tu empresa y qué necesitas para llegar al siguiente. Diagnóstico estratégico basado en Deloitte, MIT, BCG y Gartner.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Sora:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#ffffff;--sf:#f6f8fc;--sf2:#edf1f9;--cd:#ffffff;--bd:rgba(11,23,40,.08);--bd2:rgba(11,23,40,.14);--tx:#0b1728;--mt:#5d6e85;--mt2:#8097b0;--t1:#0d9f8e;--t2:#12c4b0;--b1:#1a3f8f;--v1:#7b3fa8;--co:#c2710c;--gd:#d4a520;--nv:#0b1728;}
+html{scroll-behavior:smooth}
+body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;padding-top:64px}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:#f0f4f9}::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--t1),var(--b1));border-radius:3px}
+.pb{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--t1),var(--b1),var(--t2));z-index:300;width:0;box-shadow:0 0 6px rgba(13,159,142,.35)}
+.bbar{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;padding:0 36px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.97);backdrop-filter:blur(24px);border-bottom:1px solid rgba(11,23,40,.08);box-shadow:0 2px 20px rgba(11,23,40,.07)}
+.bk{color:var(--t1);text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:7px;transition:color .2s}
+.bk:hover{color:var(--b1)}.bk svg{width:14px;height:14px}
+.btitl{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:.1em;color:var(--tx)}
+.bbadge{padding:4px 12px;border-radius:100px;background:rgba(13,159,142,.07);border:1px solid rgba(13,159,142,.28);color:var(--t1);font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .62s ease,transform .62s ease}
+.rv.vis{opacity:1;transform:translateY(0)}.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+.phero{background:var(--nv);padding:88px 28px 88px;text-align:center;position:relative;overflow:hidden}
+.phero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 75% 65% at 50% 0%,rgba(13,159,142,.18) 0%,transparent 55%),radial-gradient(ellipse 40% 35% at 5% 90%,rgba(26,63,143,.1) 0%,transparent 50%)}
+.phero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 100%)}
+.phero-inner{position:relative;z-index:1;max-width:760px;margin:0 auto}
+.plabel{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--t2);margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:9px}
+.plabel::before,.plabel::after{content:'';height:1px;width:24px;background:var(--t2);opacity:.5}
+.ph1{font-family:'Playfair Display',serif;font-size:clamp(34px,5.5vw,62px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:14px}
+.ph1 em{font-style:italic;background:linear-gradient(135deg,var(--t1),var(--t2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ph2{font-size:clamp(14px,1.7vw,17px);font-weight:300;color:rgba(255,255,255,.6);line-height:1.82;max-width:620px;margin:0 auto 32px}
+.ph2 strong{color:rgba(255,255,255,.9);font-weight:600}
+.for-who{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:100px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);font-size:12px;color:rgba(255,255,255,.65);letter-spacing:.04em}
+.for-who strong{color:#fff;font-weight:600}
+.values-sec{padding:72px 28px;background:var(--bg)}
+.values-inner{max-width:1000px;margin:0 auto}
+.sec-lbl{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--t1);margin-bottom:16px;display:flex;align-items:center;gap:9px}
+.sec-lbl::before{content:'';width:18px;height:1px;background:var(--t1)}
+.sec-h{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,44px);font-weight:900;color:var(--tx);line-height:1.18;margin-bottom:12px}
+.sec-h em{font-style:italic;background:linear-gradient(135deg,var(--t1),var(--b1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sec-p{font-size:15px;font-weight:300;color:var(--mt);line-height:1.88;max-width:600px;margin-bottom:52px}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.vcard{background:var(--cd);border:1px solid var(--bd);border-radius:20px;padding:32px 28px;position:relative;overflow:hidden;box-shadow:0 2px 16px rgba(11,23,40,.05);transition:transform .3s,box-shadow .3s,border-color .3s}
+.vcard:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(11,23,40,.1);border-color:rgba(13,159,142,.3)}
+.vcard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px}
+.vc1::after{background:linear-gradient(90deg,var(--t1),var(--b1))}
+.vc2::after{background:linear-gradient(90deg,var(--b1),var(--t2))}
+.vc3::after{background:linear-gradient(90deg,var(--t2),var(--t1))}
+.vc4::after{background:linear-gradient(90deg,var(--t1),var(--v1))}
+.vcard-ico{font-size:34px;margin-bottom:16px;line-height:1}
+.vcard-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--t1);margin-bottom:8px}
+.vcard-title{font-size:16px;font-weight:700;color:var(--tx);margin-bottom:10px;line-height:1.3}
+.vcard-txt{font-size:13px;font-weight:300;color:var(--mt);line-height:1.8}
+.vcard-txt strong{color:var(--tx);font-weight:600}
+.outcome-sec{padding:64px 28px;background:var(--sf);border-top:1px solid var(--bd)}
+.outcome-inner{max-width:900px;margin:0 auto}
+.outcome-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px}
+@media(max-width:680px){.outcome-grid{grid-template-columns:1fr}}
+.ocard{border-radius:18px;padding:30px;position:relative;overflow:hidden}
+.ocard-before{background:var(--cd);border:1px solid var(--bd);box-shadow:0 2px 12px rgba(11,23,40,.05)}
+.ocard-after{background:linear-gradient(135deg,#062520,#0d3a30);border:1px solid rgba(13,159,142,.15)}
+.ocard-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}
+.ocard-before .ocard-lbl{color:var(--mt)}.ocard-after .ocard-lbl{color:rgba(255,255,255,.45)}
+.ocard-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ocard-list li{display:flex;align-items:flex-start;gap:9px;font-size:13px;line-height:1.6}
+.ocard-before .ocard-list li{color:var(--mt)}.ocard-after .ocard-list li{color:rgba(255,255,255,.8)}
+.ocard-before .ocard-list li::before{content:'→';color:var(--mt2);flex-shrink:0;font-size:11px;margin-top:2px}
+.ocard-after .ocard-list li::before{content:'✓';color:var(--t2);flex-shrink:0;font-weight:700}
+.ocard-after .ocard-list li strong{color:#fff}
+.cta-sec{padding:64px 28px;background:var(--bg);border-top:1px solid var(--bd)}
+.ctabox{background:linear-gradient(135deg,#0b1728,#0d4a40,#062d26);border-radius:22px;padding:68px 52px;text-align:center;position:relative;overflow:hidden;max-width:760px;margin:0 auto}
+.ctabox::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 65% at 50% 0%,rgba(13,159,142,.25) 0%,transparent 58%)}
+.ctabox::after{content:'';position:absolute;width:200px;height:200px;border:1px solid rgba(255,255,255,.05);transform:rotate(45deg);right:-50px;bottom:-50px}
+.ctabox h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,4.5vw,52px);letter-spacing:.04em;color:#fff;margin-bottom:10px;position:relative;z-index:1}
+.ctabox p{font-size:14px;font-weight:300;color:rgba(255,255,255,.7);line-height:1.85;max-width:440px;margin:0 auto 28px;position:relative;z-index:1}
+.cta-cal{padding:13px 32px;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.3);color:#fff;border-radius:8px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:all .3s;position:relative;z-index:1}
+.cta-cal:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.5)}
+@media(max-width:640px){.ctabox{padding:44px 22px}}
+.foot{background:var(--nv);padding:34px 28px;text-align:center}
+.foot p{font-size:11px;color:rgba(255,255,255,.4);margin-top:5px;line-height:1.8}
+.foot a{color:var(--t2);text-decoration:none;font-weight:600}.foot a:hover{color:#fff}
+.foot-logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:8px}
+.fnm{background:linear-gradient(135deg,var(--t1),var(--b1));border-radius:8px;padding:5px 9px;height:34px;display:flex;align-items:center;font-family:'Bebas Neue',sans-serif;font-size:15px;color:#fff}
+.fnt{display:flex;flex-direction:column;line-height:1}
+.fnt1{font-family:'Playfair Display',serif;font-style:italic;font-size:10px;color:rgba(255,255,255,.5)}
+.fnt2{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.1em;color:var(--t2)}
+</style>
+</head>
+<body>
+<div class="pb" id="pb"></div>
+<div class="bbar">
+  <a href="index.html" class="bk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Inicio</a>
+  <span class="btitl">Madurez Digital</span>
+  <span class="bbadge">7 Dimensiones</span>
+</div>
+
+<div class="phero">
+  <div class="phero-grid"></div>
+  <div class="phero-inner">
+    <div class="plabel">Diagnóstico Estratégico · MIEDE X 2.0</div>
+    <h1 class="ph1">¿En qué nivel digital<br>está tu <em>empresa hoy</em>?</h1>
+    <p class="ph2">La mayoría de los líderes sobreestiman la madurez digital de su organización. Esta evaluación te da <strong>la verdad</strong> — con la precisión necesaria para tomar decisiones que realmente muevan la aguja.</p>
+    <div class="for-who">Para <strong>CEOs, Directores y Líderes</strong> que quieren tomar decisiones basadas en datos reales</div>
+  </div>
+</div>
+
+<div class="values-sec">
+  <div class="values-inner">
+    <div class="sec-lbl rv">Lo que obtienes</div>
+    <h2 class="sec-h rv d1">El diagnóstico que tus<br>decisiones <em>merecen</em></h2>
+    <p class="sec-p rv d2">No es un cuestionario genérico. Es el mismo framework que usamos en nuestros procesos de consultoría — ahora disponible para que lo apliques en tu organización.</p>
+    <div class="vgrid">
+      <div class="vcard vc1 rv">
+        <div class="vcard-ico">🗺</div>
+        <div class="vcard-lbl">Claridad</div>
+        <div class="vcard-title">Dónde estás realmente</div>
+        <div class="vcard-txt">Un mapa preciso de tu madurez digital en <strong>7 dimensiones críticas</strong>: estrategia, experiencia del cliente, operaciones, tecnología, datos, personas y ecosistema. Sin autoengaños, con datos.</div>
+      </div>
+      <div class="vcard vc2 rv d1">
+        <div class="vcard-ico">🎯</div>
+        <div class="vcard-lbl">Priorización</div>
+        <div class="vcard-title">Qué atacar primero</div>
+        <div class="vcard-txt">Identifica las <strong>áreas de mayor impacto y menor resistencia</strong> donde una inversión focalizada genera el mayor retorno. No todo se puede hacer a la vez — aquí sabrás por dónde empezar.</div>
+      </div>
+      <div class="vcard vc3 rv d2">
+        <div class="vcard-ico">📊</div>
+        <div class="vcard-lbl">Contexto</div>
+        <div class="vcard-title">Dónde está la industria</div>
+        <div class="vcard-txt">Tu puntaje cobra sentido cuando lo comparas. Los benchmarks de <strong>Deloitte, MIT, BCG y Gartner</strong> te dicen si estás por delante, al nivel o rezagado respecto a tu sector.</div>
+      </div>
+      <div class="vcard vc4 rv d3">
+        <div class="vcard-ico">🛣</div>
+        <div class="vcard-lbl">Dirección</div>
+        <div class="vcard-title">El camino al siguiente nivel</div>
+        <div class="vcard-txt">Cada nivel de madurez tiene un camino claro hacia el siguiente. Sabrás exactamente <strong>qué capacidades construir, qué tecnología adoptar y qué cultura cultivar</strong> para avanzar.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="outcome-sec">
+  <div class="outcome-inner">
+    <div class="sec-lbl rv">Antes vs. Después</div>
+    <h2 class="sec-h rv d1">Lo que <em>cambia</em> para tu organización</h2>
+    <div class="outcome-grid">
+      <div class="ocard ocard-before rv">
+        <div class="ocard-lbl">Sin este diagnóstico</div>
+        <ul class="ocard-list">
+          <li>Inversiones en tecnología sin dirección clara</li>
+          <li>Iniciativas digitales que no escalan</li>
+          <li>Liderazgo que desconoce los gaps reales</li>
+          <li>Recursos desperdiciados en las áreas equivocadas</li>
+          <li>Decisiones basadas en percepción, no en datos</li>
+        </ul>
+      </div>
+      <div class="ocard ocard-after rv d1">
+        <div class="ocard-lbl">Con el diagnóstico completo</div>
+        <ul class="ocard-list">
+          <li><strong>Claridad absoluta</strong> sobre el estado digital real</li>
+          <li>Roadmap priorizado con criterios objetivos</li>
+          <li><strong>Liderazgo alineado</strong> en torno a una visión compartida</li>
+          <li>Inversiones focalizadas en las áreas de mayor ROI</li>
+          <li><strong>Ventaja competitiva</strong> sobre quienes operan a ciegas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-sec">
+  <div class="ctabox">
+    <h2>Lleva el Diagnóstico a tu Empresa</h2>
+    <p>Este framework es más poderoso cuando lo aplicamos juntos. Agenda una sesión gratuita y trabajamos el diagnóstico con tu equipo directivo.</p>
+    <a href="https://calendly.com/transformacionexo" target="_blank" class="cta-cal">📅 Agendar Sesión Gratuita con Calendly</a>
+  </div>
+</div>
+
+<div class="foot">
+  <a href="index.html" class="foot-logo"><div class="fnm">TX</div><div class="fnt"><span class="fnt1">Transformación</span><span class="fnt2">ExO</span></div></a>
+  <p>Evaluación de Madurez Digital · Deloitte, MIT, KPMG, BCG, Gartner</p>
+  <p><a href="index.html">← Sitio principal</a> &nbsp;·&nbsp; <a href="evaluacion-ia.html">Madurez para IA</a> &nbsp;·&nbsp; <a href="blog.html">Blog</a></p>
+</div>
+<script>
+const pb=document.getElementById('pb');
+window.addEventListener('scroll',()=>{pb.style.width=((window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100)+'%'});
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis')})},{threshold:.07,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

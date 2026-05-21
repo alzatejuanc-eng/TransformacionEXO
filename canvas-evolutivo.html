@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canvas Evolutivo con IA — Transformación ExO</title>
+<meta name="description" content="Diseña el modelo de negocio que tu empresa necesita para competir en la era de la IA. Del AS-IS al TO-BE, guiado por inteligencia artificial.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Sora:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#ffffff;--sf:#f6f8fc;--sf2:#edf1f9;--cd:#ffffff;--bd:rgba(11,23,40,.08);--bd2:rgba(11,23,40,.14);--tx:#0b1728;--mt:#5d6e85;--mt2:#8097b0;--t1:#0d9f8e;--t2:#12c4b0;--b1:#1a3f8f;--v1:#7b3fa8;--co:#c2710c;--gd:#d4a520;--nv:#0b1728;}
+html{scroll-behavior:smooth}
+body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;padding-top:64px}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:#f0f4f9}::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--co),var(--gd));border-radius:3px}
+.pb{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--co),var(--gd),var(--t1));z-index:300;width:0;box-shadow:0 0 6px rgba(194,113,12,.35)}
+.bbar{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;padding:0 36px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.97);backdrop-filter:blur(24px);border-bottom:1px solid rgba(11,23,40,.08);box-shadow:0 2px 20px rgba(11,23,40,.07)}
+.bk{color:var(--t1);text-decoration:none;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:7px;transition:color .2s}
+.bk:hover{color:var(--b1)}.bk svg{width:14px;height:14px}
+.btitl{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:.1em;color:var(--tx)}
+.bbadge{padding:4px 12px;border-radius:100px;background:rgba(194,113,12,.07);border:1px solid rgba(194,113,12,.28);color:var(--co);font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .62s ease,transform .62s ease}
+.rv.vis{opacity:1;transform:translateY(0)}.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+.phero{background:var(--nv);padding:88px 28px;text-align:center;position:relative;overflow:hidden}
+.phero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 75% 65% at 50% 0%,rgba(194,113,12,.18) 0%,transparent 55%),radial-gradient(ellipse 40% 35% at 5% 90%,rgba(13,159,142,.08) 0%,transparent 50%)}
+.phero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 100%)}
+.phero-inner{position:relative;z-index:1;max-width:760px;margin:0 auto}
+.plabel{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#e8b060;margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:9px}
+.plabel::before,.plabel::after{content:'';height:1px;width:24px;background:#e8b060;opacity:.5}
+.ph1{font-family:'Playfair Display',serif;font-size:clamp(34px,5.5vw,62px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:14px}
+.ph1 em{font-style:italic;background:linear-gradient(135deg,var(--co),var(--gd));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ph2{font-size:clamp(14px,1.7vw,17px);font-weight:300;color:rgba(255,255,255,.6);line-height:1.82;max-width:620px;margin:0 auto 32px}
+.ph2 strong{color:rgba(255,255,255,.9);font-weight:600}
+.hero-flow{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;margin-top:8px}
+.hf-pill{padding:8px 18px;border-radius:100px;font-size:12px;font-weight:600;border:1px solid;letter-spacing:.04em}
+.hf-from{background:rgba(194,113,12,.1);border-color:rgba(194,113,12,.32);color:#e8a050}
+.hf-arr{color:rgba(255,255,255,.3);font-size:18px}
+.hf-to{background:rgba(13,159,142,.1);border-color:rgba(13,159,142,.32);color:var(--t2)}
+.values-sec{padding:72px 28px;background:var(--bg)}
+.values-inner{max-width:1000px;margin:0 auto}
+.sec-lbl{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--co);margin-bottom:16px;display:flex;align-items:center;gap:9px}
+.sec-lbl::before{content:'';width:18px;height:1px;background:var(--co)}
+.sec-h{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,44px);font-weight:900;color:var(--tx);line-height:1.18;margin-bottom:12px}
+.sec-h em{font-style:italic;background:linear-gradient(135deg,var(--co),var(--b1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sec-p{font-size:15px;font-weight:300;color:var(--mt);line-height:1.88;max-width:600px;margin-bottom:52px}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.vcard{background:var(--cd);border:1px solid var(--bd);border-radius:20px;padding:32px 28px;position:relative;overflow:hidden;box-shadow:0 2px 16px rgba(11,23,40,.05);transition:transform .3s,box-shadow .3s,border-color .3s}
+.vcard:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(11,23,40,.1);border-color:rgba(194,113,12,.3)}
+.vcard::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px}
+.vc1::after{background:linear-gradient(90deg,var(--co),var(--gd))}.vc2::after{background:linear-gradient(90deg,var(--gd),var(--t1))}.vc3::after{background:linear-gradient(90deg,var(--t1),var(--b1))}.vc4::after{background:linear-gradient(90deg,var(--b1),var(--v1))}
+.vcard-ico{font-size:34px;margin-bottom:16px;line-height:1}
+.vcard-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--co);margin-bottom:8px}
+.vcard-title{font-size:16px;font-weight:700;color:var(--tx);margin-bottom:10px;line-height:1.3}
+.vcard-txt{font-size:13px;font-weight:300;color:var(--mt);line-height:1.8}
+.vcard-txt strong{color:var(--tx);font-weight:600}
+.new-pillars{background:linear-gradient(135deg,rgba(194,113,12,.04),rgba(26,63,143,.04));border:1px solid rgba(194,113,12,.15);border-radius:18px;padding:32px;margin-top:44px}
+.np-h{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--tx);margin-bottom:18px}
+.np-h em{font-style:italic;color:var(--co)}
+.np-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.np-item{display:flex;align-items:center;gap:10px;padding:14px;background:var(--cd);border:1px solid var(--bd);border-radius:12px;font-size:13px;font-weight:600;color:var(--tx)}
+.np-item span{font-size:20px;flex-shrink:0}
+.outcome-sec{padding:64px 28px;background:var(--sf);border-top:1px solid var(--bd)}
+.outcome-inner{max-width:900px;margin:0 auto}
+.outcome-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px}
+@media(max-width:680px){.outcome-grid{grid-template-columns:1fr}}
+.ocard{border-radius:18px;padding:30px}
+.ocard-before{background:var(--cd);border:1px solid var(--bd);box-shadow:0 2px 12px rgba(11,23,40,.05)}
+.ocard-after{background:linear-gradient(135deg,#1c0800,#5a2800);border:1px solid rgba(194,113,12,.2)}
+.ocard-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}
+.ocard-before .ocard-lbl{color:var(--mt)}.ocard-after .ocard-lbl{color:rgba(255,255,255,.45)}
+.ocard-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ocard-list li{display:flex;align-items:flex-start;gap:9px;font-size:13px;line-height:1.6}
+.ocard-before .ocard-list li{color:var(--mt)}.ocard-after .ocard-list li{color:rgba(255,255,255,.8)}
+.ocard-before .ocard-list li::before{content:'→';color:var(--mt2);flex-shrink:0;font-size:11px;margin-top:2px}
+.ocard-after .ocard-list li::before{content:'✓';color:#e8b060;flex-shrink:0;font-weight:700}
+.ocard-after .ocard-list li strong{color:#fff}
+.cta-sec{padding:64px 28px;background:var(--bg);border-top:1px solid var(--bd)}
+.ctabox{background:linear-gradient(135deg,#0b1728,#7a3e05,#1a3f8f);border-radius:22px;padding:68px 52px;text-align:center;position:relative;overflow:hidden;max-width:760px;margin:0 auto}
+.ctabox::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 65% at 50% 0%,rgba(212,165,32,.2) 0%,transparent 58%)}
+.ctabox::after{content:'';position:absolute;width:200px;height:200px;border:1px solid rgba(255,255,255,.05);transform:rotate(45deg);right:-50px;bottom:-50px}
+.ctabox h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,4.5vw,52px);letter-spacing:.04em;color:#fff;margin-bottom:10px;position:relative;z-index:1}
+.ctabox p{font-size:14px;font-weight:300;color:rgba(255,255,255,.7);line-height:1.85;max-width:440px;margin:0 auto 28px;position:relative;z-index:1}
+.cta-cal{padding:13px 32px;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.3);color:#fff;border-radius:8px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:all .3s;position:relative;z-index:1}
+.cta-cal:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.5)}
+@media(max-width:640px){.ctabox{padding:44px 22px}}
+.foot{background:var(--nv);padding:34px 28px;text-align:center}
+.foot p{font-size:11px;color:rgba(255,255,255,.4);margin-top:5px;line-height:1.8}
+.foot a{color:var(--t2);text-decoration:none;font-weight:600}.foot a:hover{color:#fff}
+.foot-logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:8px}
+.fnm{background:linear-gradient(135deg,var(--t1),var(--b1));border-radius:8px;padding:5px 9px;height:34px;display:flex;align-items:center;font-family:'Bebas Neue',sans-serif;font-size:15px;color:#fff}
+.fnt{display:flex;flex-direction:column;line-height:1}
+.fnt1{font-family:'Playfair Display',serif;font-style:italic;font-size:10px;color:rgba(255,255,255,.5)}
+.fnt2{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.1em;color:var(--t2)}
+</style>
+</head>
+<body>
+<div class="pb" id="pb"></div>
+<div class="bbar">
+  <a href="index.html" class="bk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Inicio</a>
+  <span class="btitl">Canvas Evolutivo</span>
+  <span class="bbadge">AS-IS → TO-BE · IA</span>
+</div>
+
+<div class="phero">
+  <div class="phero-grid"></div>
+  <div class="phero-inner">
+    <div class="plabel">Modelo de Negocio · MIEDE X 2.0</div>
+    <h1 class="ph1">El modelo de negocio que<br>la era de la IA <em>exige</em></h1>
+    <p class="ph2">Tu modelo de negocio actual fue diseñado para un mundo que ya cambió. El Canvas Evolutivo te ayuda a diseñar el modelo que necesitas <strong>para competir y ganar en la era de la inteligencia artificial</strong>.</p>
+    <div class="hero-flow">
+      <div class="hf-pill hf-from">Tu modelo hoy (AS-IS)</div>
+      <div class="hf-arr">→</div>
+      <div class="hf-pill hf-to">Tu modelo del futuro (TO-BE)</div>
+    </div>
+  </div>
+</div>
+
+<div class="values-sec">
+  <div class="values-inner">
+    <div class="sec-lbl rv">Lo que logras</div>
+    <h2 class="sec-h rv d1">Diseña el modelo de negocio<br><em>del mañana</em>, hoy</h2>
+    <p class="sec-p rv d2">No es un ejercicio académico. Es el trabajo estratégico que determina si tu empresa protagoniza la transformación o la sufre.</p>
+    <div class="vgrid">
+      <div class="vcard vc1 rv">
+        <div class="vcard-ico">🪞</div>
+        <div class="vcard-lbl">Claridad</div>
+        <div class="vcard-title">Una visión honesta de tu modelo actual</div>
+        <div class="vcard-txt">La mayoría de los líderes tienen una imagen idealizada de su modelo de negocio. El Canvas Evolutivo fuerza la <strong>honestidad brutal sobre el AS-IS</strong> — la única base sólida para construir el futuro.</div>
+      </div>
+      <div class="vcard vc2 rv d1">
+        <div class="vcard-ico">🤖</div>
+        <div class="vcard-lbl">Integración</div>
+        <div class="vcard-title">IA como arquitecto del futuro</div>
+        <div class="vcard-txt">La IA no es un bloque más en el canvas — es el <strong>habilitador que transforma todos los demás bloques</strong>: propuesta de valor, relaciones con clientes, fuentes de ingresos, recursos y procesos. Todo cambia con IA.</div>
+      </div>
+      <div class="vcard vc3 rv d2">
+        <div class="vcard-ico">🆕</div>
+        <div class="vcard-lbl">Evolución</div>
+        <div class="vcard-title">4 nuevos pilares que el canvas clásico no tiene</div>
+        <div class="vcard-txt">Datos, gobernanza de IA, capacidades humanas para IA y adaptabilidad dinámica. <strong>Los 4 pilares que ninguna empresa puede ignorar</strong> si quiere competir en la próxima década.</div>
+      </div>
+      <div class="vcard vc4 rv d3">
+        <div class="vcard-ico">🗺</div>
+        <div class="vcard-lbl">Dirección</div>
+        <div class="vcard-title">7 niveles de evolución claros</div>
+        <div class="vcard-txt">Desde el diagnóstico hasta la Fusión Digital Total — <strong>un camino con hitos concretos</strong> para cada bloque del modelo. Sabrás exactamente en qué nivel está cada dimensión de tu negocio y qué necesita para avanzar.</div>
+      </div>
+    </div>
+    <div class="new-pillars rv">
+      <div class="np-h">Los <em>4 nuevos pilares</em> que el Business Model Canvas clásico no tiene</div>
+      <div class="np-grid">
+        <div class="np-item"><span>🗄</span>Ecosistema de Datos</div>
+        <div class="np-item"><span>⚖️</span>Gobernanza de IA</div>
+        <div class="np-item"><span>🧠</span>Capacidades Humanas para IA</div>
+        <div class="np-item"><span>🔄</span>Adaptabilidad Dinámica</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="outcome-sec">
+  <div class="outcome-inner">
+    <div class="sec-lbl rv">Antes vs. Después</div>
+    <h2 class="sec-h rv d1">Lo que <em>cambia</em> para tu empresa</h2>
+    <div class="outcome-grid">
+      <div class="ocard ocard-before rv">
+        <div class="ocard-lbl">Sin el Canvas Evolutivo</div>
+        <ul class="ocard-list">
+          <li>Modelo de negocio diseñado para el ayer</li>
+          <li>IA como herramienta suelta, sin integración al modelo</li>
+          <li>Decisiones estratégicas sin claridad sobre el futuro</li>
+          <li>Ventajas competitivas que la tecnología erosionará</li>
+          <li>Reaccionando a la disrupción en lugar de liderarla</li>
+        </ul>
+      </div>
+      <div class="ocard ocard-after rv d1">
+        <div class="ocard-lbl">Con el Canvas Evolutivo completado</div>
+        <ul class="ocard-list">
+          <li><strong>Modelo de negocio TO-BE</strong> diseñado con IA integrada</li>
+          <li>Visión compartida del equipo directivo sobre el futuro</li>
+          <li><strong>Gap claro</strong> entre dónde estás y adónde vas</li>
+          <li>Nuevas fuentes de ingreso habilitadas por datos e IA</li>
+          <li><strong>Protagonismo en la disrupción</strong> de tu sector</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-sec">
+  <div class="ctabox">
+    <h2>Diseña el Modelo que te Hará Ganar</h2>
+    <p>El Canvas Evolutivo es más poderoso cuando lo trabajamos con tu equipo directivo. Una sesión estratégica puede cambiar la dirección de tu empresa.</p>
+    <a href="https://calendly.com/transformacionexo" target="_blank" class="cta-cal">📅 Agendar Sesión Estratégica en Calendly</a>
+  </div>
+</div>
+
+<div class="foot">
+  <a href="index.html" class="foot-logo"><div class="fnm">TX</div><div class="fnt"><span class="fnt1">Transformación</span><span class="fnt2">ExO</span></div></a>
+  <p>Canvas Evolutivo con IA · MIEDE X 2.0 · Transformación ExO</p>
+  <p><a href="index.html">← Sitio principal</a> &nbsp;·&nbsp; <a href="miede.html">MIEDE X 2.0</a> &nbsp;·&nbsp; <a href="blog.html">Blog</a></p>
+</div>
+<script>
+const pb=document.getElementById('pb');
+window.addEventListener('scroll',()=>{pb.style.width=((window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100)+'%'});
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis')})},{threshold:.07,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
